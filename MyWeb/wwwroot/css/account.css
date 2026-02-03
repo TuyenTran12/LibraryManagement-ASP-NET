@@ -1,0 +1,66 @@
+﻿/* --- Giữ nguyên phần cũ của bạn --- */
+.account-container {
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.account-box {
+    background-color: #ffffff; /* nền trắng */
+    padding: 40px 32px; /* Tăng padding chút cho thoáng */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Bóng đậm hơn chút */
+    width: 100%;
+    max-width: 420px;
+    color: #212529;
+    border: 1px solid #000; /* Thêm viền mỏng cho cả hộp nếu thích */
+}
+
+/* --- PHẦN THÊM MỚI (Copy từ trang Create sang) --- */
+
+/* 1. Tạo khung viền đen bao quanh input */
+.input-group-solid {
+    border: 2px solid #000000 !important; /* Viền đen dày 2px */
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #ffffff;
+    display: flex;
+    margin-bottom: 5px;
+}
+
+    /* 2. Hiệu ứng khi focus */
+    .input-group-solid:focus-within {
+        border-color: #0d6efd !important;
+        box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.2);
+    }
+
+    /* 3. Đảm bảo input và icon không có viền riêng lẻ */
+    .input-group-solid .form-control,
+    .input-group-solid .input-group-text {
+        border: none !important;
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
+
+/* 4. Checkbox viền đen cho đồng bộ */
+.form-check-input {
+    border: 2px solid #000000;
+    cursor: pointer;
+}
+
+    .form-check-input:checked {
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+    }
+
+/* 5. Nút bấm cứng cáp hơn */
+.btn-primary {
+    border: 2px solid #000000 !important; /* Viền đen cho nút */
+}
+

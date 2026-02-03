@@ -1,0 +1,111 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\views\\account\\verifyemail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\views\\account\\verifyemail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\wwwroot\\css\\account.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\wwwroot\\css\\account.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\views\\account\\changepassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\views\\account\\changepassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "MyWeb\\Views\\Account\\Login.cshtml",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "MyWeb\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAADcAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-03T11:22:45.959Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "account.css",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\wwwroot\\css\\account.css",
+              "RelativeDocumentMoniker": "MyWeb\\wwwroot\\css\\account.css",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\wwwroot\\css\\account.css",
+              "RelativeToolTip": "MyWeb\\wwwroot\\css\\account.css",
+              "ViewState": "AgIAABsAAAAAAAAAAAAgwEIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-02-03T11:20:30.371Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ChangePassword.cshtml",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Views\\Account\\ChangePassword.cshtml",
+              "RelativeDocumentMoniker": "MyWeb\\Views\\Account\\ChangePassword.cshtml",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Views\\Account\\ChangePassword.cshtml",
+              "RelativeToolTip": "MyWeb\\Views\\Account\\ChangePassword.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAuwDwAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-03T11:20:15.391Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VerifyEmail.cshtml",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Views\\Account\\VerifyEmail.cshtml",
+              "RelativeDocumentMoniker": "MyWeb\\Views\\Account\\VerifyEmail.cshtml",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Views\\Account\\VerifyEmail.cshtml",
+              "RelativeToolTip": "MyWeb\\Views\\Account\\VerifyEmail.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-03T11:20:08.239Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "MyWeb\\Views\\Account\\Register.cshtml",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "MyWeb\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAuwEYAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-03T11:19:58.575Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
