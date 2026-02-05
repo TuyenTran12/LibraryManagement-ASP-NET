@@ -472,3 +472,4 @@ D:\Documents\Web\LibraryManagement-ASP-NET\MyWeb\obj\Debug\net9.0\refint\MyWeb.d
 D:\Documents\Web\LibraryManagement-ASP-NET\MyWeb\obj\Debug\net9.0\MyWeb.pdb
 D:\Documents\Web\LibraryManagement-ASP-NET\MyWeb\obj\Debug\net9.0\MyWeb.genruntimeconfig.cache
 D:\Documents\Web\LibraryManagement-ASP-NET\MyWeb\obj\Debug\net9.0\ref\MyWeb.dll
+D:\Documents\Web\LibraryManagement-ASP-NET\MyWeb\obj\Debug\net9.0\MyWeb.sourcelink.json

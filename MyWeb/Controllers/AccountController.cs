@@ -1,19 +1,18 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyWeb.Models;
+using MyWeb.Repositories;
 using MyWeb.ViewModels;
 
 namespace MyWeb.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly SignInManager<Users> signInManager;
-        private readonly UserManager<Users> userManager;
+        private readonly IAccountRepository _accountRepository;
 
-        public AccountController(SignInManager<Users> signInManager, UserManager<Users> userManager)
+        public AccountController(IAccountRepository accountRepository)
         {
-            this.signInManager = signInManager;
-            this.userManager = userManager;
+            _accountRepository = accountRepository;
         }
 
         public IActionResult Login()
@@ -25,12 +24,7 @@ namespace MyWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await signInManager.PasswordSignInAsync(
-                    model.Email,
-                    model.Password,
-                    model.RememberMe,
-                    false
-                );
+                var result = await _accountRepository.LoginAsync(model);
 
                 if (result.Succeeded)
                 {
@@ -53,13 +47,7 @@ namespace MyWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new Users
-                {
-                    FullName = model.Name,
-                    Email = model.Email,
-                    UserName = model.Email
-                };
-                var result = await userManager.CreateAsync(user, model.Password);
+                var result = await _accountRepository.RegisterAsync(model);
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Login", "Account");
@@ -85,7 +73,7 @@ namespace MyWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await userManager.FindByNameAsync(model.Email);
+                var user = await _accountRepository.GetUserByEmailAsync(model.Email);
                 if (user == null)
                 {
                     ModelState.AddModelError("", "Email not found.");
@@ -100,7 +88,7 @@ namespace MyWeb.Controllers
         }
         public IActionResult ChangePassword()
         {
-            if(string.IsNullOrEmpty(Request.Query["email"]))
+            if (string.IsNullOrEmpty(Request.Query["email"]))
             {
                 return RedirectToAction("VerifyEmail", "Account");
             }
@@ -115,37 +103,19 @@ namespace MyWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await userManager.FindByNameAsync(model.Email);
-                if (user == null)
-                {
-                    ModelState.AddModelError("", "Email not found.");
-                    return View(model);
-                }
-                var result = await userManager.RemovePasswordAsync(user);
+                var result = await _accountRepository.ChangePasswordAsync(model);
                 if (result.Succeeded)
                 {
-                    result = await userManager.AddPasswordAsync(user, model.NewPassword);
-                    if (result.Succeeded)
-                    {
-                        return RedirectToAction("Login", "Account");
-                    }
-                    else
-                    {
-                        foreach (var error in result.Errors)
-                        {
-                            ModelState.AddModelError("", error.Description);
-                        }
-                        return View(model);
-                    }
+                    return RedirectToAction("Login", "Account");
                 }
                 else
                 {
                     foreach (var error in result.Errors)
                     {
-                        ModelState.AddModelError("", "Email not found!");
+                        ModelState.AddModelError("", error.Description);
                     }
                     return View(model);
-                }               
+                }
             }
             else
             {
@@ -155,7 +125,7 @@ namespace MyWeb.Controllers
         }
         public async Task<IActionResult> Logout()
         {
-            await signInManager.SignOutAsync();
+            await _accountRepository.Logout();
             return RedirectToAction("Login", "Account");
         }
     }

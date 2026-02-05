@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using MyWeb.Data;
 using MyWeb.Models;
+using MyWeb.Repositories;
 
 namespace MyWeb
 {
@@ -17,6 +18,9 @@ namespace MyWeb
 
             builder.Services.AddDbContext<MyAppContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            builder.Services.AddScoped<IBookRepository, BookRepository>();
+            builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 
             builder.Services.AddIdentity<Users, IdentityRole>(options =>
             {

@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\views\\account\\verifyemail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\views\\account\\verifyemail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\wwwroot\\css\\account.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\wwwroot\\css\\account.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\repositories\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\repositories\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\views\\account\\changepassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\views\\account\\changepassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\repositories\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\repositories\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,64 +34,68 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "MyWeb\\Views\\Account\\Login.cshtml",
-              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "MyWeb\\Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAADcAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-03T11:22:45.959Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "account.css",
-              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\wwwroot\\css\\account.css",
-              "RelativeDocumentMoniker": "MyWeb\\wwwroot\\css\\account.css",
-              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\wwwroot\\css\\account.css",
-              "RelativeToolTip": "MyWeb\\wwwroot\\css\\account.css",
-              "ViewState": "AgIAABsAAAAAAAAAAAAgwEIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-02-03T11:20:30.371Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ChangePassword.cshtml",
-              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Views\\Account\\ChangePassword.cshtml",
-              "RelativeDocumentMoniker": "MyWeb\\Views\\Account\\ChangePassword.cshtml",
-              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Views\\Account\\ChangePassword.cshtml",
-              "RelativeToolTip": "MyWeb\\Views\\Account\\ChangePassword.cshtml",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAuwDwAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-03T11:20:15.391Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "VerifyEmail.cshtml",
-              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Views\\Account\\VerifyEmail.cshtml",
-              "RelativeDocumentMoniker": "MyWeb\\Views\\Account\\VerifyEmail.cshtml",
-              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Views\\Account\\VerifyEmail.cshtml",
-              "RelativeToolTip": "MyWeb\\Views\\Account\\VerifyEmail.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABTAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-03T11:20:08.239Z",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Program.cs",
+              "RelativeDocumentMoniker": "MyWeb\\Program.cs",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Program.cs",
+              "RelativeToolTip": "MyWeb\\Program.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-05T11:43:51.031Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Register.cshtml",
-              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Views\\Account\\Register.cshtml",
-              "RelativeDocumentMoniker": "MyWeb\\Views\\Account\\Register.cshtml",
-              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Views\\Account\\Register.cshtml",
-              "RelativeToolTip": "MyWeb\\Views\\Account\\Register.cshtml",
-              "ViewState": "AgIAACoAAAAAAAAAAAAuwEYAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-03T11:19:58.575Z"
+              "DocumentIndex": 1,
+              "Title": "BooksController.cs",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Controllers\\BooksController.cs",
+              "RelativeDocumentMoniker": "MyWeb\\Controllers\\BooksController.cs",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Controllers\\BooksController.cs",
+              "RelativeToolTip": "MyWeb\\Controllers\\BooksController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-05T11:36:17.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AccountRepository.cs",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Repositories\\AccountRepository.cs",
+              "RelativeDocumentMoniker": "MyWeb\\Repositories\\AccountRepository.cs",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Repositories\\AccountRepository.cs",
+              "RelativeToolTip": "MyWeb\\Repositories\\AccountRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-05T10:50:14.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "MyWeb\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "MyWeb\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-05T10:49:29.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IAccountRepository.cs",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Repositories\\IAccountRepository.cs",
+              "RelativeDocumentMoniker": "MyWeb\\Repositories\\IAccountRepository.cs",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Repositories\\IAccountRepository.cs",
+              "RelativeToolTip": "MyWeb\\Repositories\\IAccountRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-05T10:50:25.009Z",
+              "EditorCaption": ""
             }
           ]
         },
