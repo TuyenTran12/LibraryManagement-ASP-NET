@@ -1,74 +1,104 @@
-﻿@using MyWeb.ViewModels;
-@model RegisterViewModel;
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using MyWeb.ViewModels
+
+@model RegisterViewModel
+
+@* 1. Inject bộ dịch View *@
+@inject IViewLocalizer Localizer
+
 @{
-    ViewData["Title"] = "Đăng ký";
+    ViewData["Title"] = Localizer["PageTitle"];
     Layout = "~/Views/Shared/_AccountLayout.cshtml";
 }
 
 <div class="account-container">
     <div class="account-box">
         <div class="text-center mb-4">
-            <h2 class="fw-bold text-dark text-uppercase">Đăng Ký</h2>
-            <p class="text-muted small">Tạo tài khoản mới để trải nghiệm dịch vụ</p>
+            @* Tiêu đề & Mô tả *@
+            <h2 class="fw-bold text-dark text-uppercase">@Localizer["PageTitle"]</h2>
+            <p class="text-muted small">@Localizer["Desc"]</p>
         </div>
 
         <form asp-action="Register" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
+            @* 1. Họ và Tên *@
             <div class="mb-3">
-                <label asp-for="Name" class="form-label fw-bold text-dark">Họ và Tên</label>
+                <label asp-for="Name" class="form-label fw-bold text-dark">
+                    @Localizer["Label_Name"]
+                </label>
                 <div class="input-group input-group-solid">
                     <span class="input-group-text bg-white border-0">
                         <i class="fas fa-user text-primary"></i>
                     </span>
-                    <input asp-for="Name" class="form-control bg-white text-dark border-0 shadow-none" placeholder="Nhập họ tên..." />
+                    <input asp-for="Name" class="form-control bg-white text-dark border-0 shadow-none"
+                           placeholder="@Localizer["Placeholder_Name"]" />
                 </div>
                 <span asp-validation-for="Name" class="text-danger small"></span>
             </div>
 
+            @* 2. Email *@
             <div class="mb-3">
-                <label asp-for="Email" class="form-label fw-bold text-dark">Email</label>
+                <label asp-for="Email" class="form-label fw-bold text-dark">
+                    @Localizer["Label_Email"]
+                </label>
                 <div class="input-group input-group-solid">
                     <span class="input-group-text bg-white border-0">
                         <i class="fas fa-envelope text-primary"></i>
                     </span>
-                    <input asp-for="Email" class="form-control bg-white text-dark border-0 shadow-none" placeholder="name@example.com" />
+                    <input asp-for="Email" class="form-control bg-white text-dark border-0 shadow-none"
+                           placeholder="@Localizer["Placeholder_Email"]" />
                 </div>
                 <span asp-validation-for="Email" class="text-danger small"></span>
             </div>
 
+            @* 3. Mật khẩu *@
             <div class="mb-3">
-                <label asp-for="Password" class="form-label fw-bold text-dark">Mật khẩu</label>
+                <label asp-for="Password" class="form-label fw-bold text-dark">
+                    @Localizer["Label_Password"]
+                </label>
                 <div class="input-group input-group-solid">
                     <span class="input-group-text bg-white border-0">
                         <i class="fas fa-lock text-primary"></i>
                     </span>
-                    <input asp-for="Password" type="password" class="form-control bg-white text-dark border-0 shadow-none" placeholder="••••••" />
+                    <input asp-for="Password" type="password" class="form-control bg-white text-dark border-0 shadow-none"
+                           placeholder="@Localizer["Placeholder_Password"]" />
                 </div>
                 <span asp-validation-for="Password" class="text-danger small"></span>
             </div>
 
+            @* 4. Xác nhận mật khẩu *@
             <div class="mb-3">
-                <label asp-for="ConfirmPassword" class="form-label fw-bold text-dark">Xác nhận mật khẩu</label>
+                <label asp-for="ConfirmPassword" class="form-label fw-bold text-dark">
+                    @Localizer["Label_ConfirmPassword"]
+                </label>
                 <div class="input-group input-group-solid">
                     <span class="input-group-text bg-white border-0">
                         <i class="fas fa-check-circle text-primary"></i>
                     </span>
-                    <input asp-for="ConfirmPassword" type="password" class="form-control bg-white text-dark border-0 shadow-none" placeholder="Nhập lại mật khẩu" />
+                    <input asp-for="ConfirmPassword" type="password" class="form-control bg-white text-dark border-0 shadow-none"
+                           placeholder="@Localizer["Placeholder_ConfirmPassword"]" />
                 </div>
                 <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
             </div>
 
+            @* Nút Đăng ký *@
             <div class="d-grid mt-4">
-                <input type="submit" value="Đăng Ký Ngay" class="btn btn-primary fw-bold shadow border-dark btn-lg" />
+                <input type="submit" value="@Localizer["Button_Register"]" class="btn btn-primary fw-bold shadow border-dark btn-lg" />
             </div>
 
+            @* Link Đăng nhập *@
             <p class="text-center mt-3 mb-0 text-dark small">
-                Đã có tài khoản? <a asp-controller="Account" asp-action="Login" class="text-decoration-none fw-bold">Đăng nhập tại đây</a>
+                @Localizer["Text_HaveAccount"]
+                <a asp-controller="Account" asp-action="Login" class="text-decoration-none fw-bold">
+                    @Localizer["Link_LoginHere"]
+                </a>
             </p>
+
+            @* Nút Quay lại *@
             <div class="text-center mt-2">
                 <a asp-controller="Account" asp-action="Login" class="text-decoration-none text-muted small hover-link">
-                    <i class="fas fa-arrow-left me-1"></i> Quay lại
+                    <i class="fas fa-arrow-left me-1"></i> @Localizer["Link_Back"]
                 </a>
             </div>
         </form>

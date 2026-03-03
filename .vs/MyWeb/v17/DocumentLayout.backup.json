@@ -3,24 +3,8 @@
   "WorkspaceRootPath": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\repositories\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\repositories\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\repositories\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\repositories\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Program.cs",
-              "RelativeDocumentMoniker": "MyWeb\\Program.cs",
-              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Program.cs",
-              "RelativeToolTip": "MyWeb\\Program.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAABQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-05T11:43:51.031Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "BooksController.cs",
-              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Controllers\\BooksController.cs",
-              "RelativeDocumentMoniker": "MyWeb\\Controllers\\BooksController.cs",
-              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Controllers\\BooksController.cs",
-              "RelativeToolTip": "MyWeb\\Controllers\\BooksController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-05T11:36:17.123Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AccountRepository.cs",
-              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Repositories\\AccountRepository.cs",
-              "RelativeDocumentMoniker": "MyWeb\\Repositories\\AccountRepository.cs",
-              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Repositories\\AccountRepository.cs",
-              "RelativeToolTip": "MyWeb\\Repositories\\AccountRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-05T10:50:14.147Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "MyWeb\\Controllers\\AccountController.cs",
-              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "MyWeb\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-05T10:49:29.06Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IAccountRepository.cs",
-              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Repositories\\IAccountRepository.cs",
-              "RelativeDocumentMoniker": "MyWeb\\Repositories\\IAccountRepository.cs",
-              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Repositories\\IAccountRepository.cs",
-              "RelativeToolTip": "MyWeb\\Repositories\\IAccountRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-05T10:50:25.009Z",
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\appsettings.json",
+              "RelativeDocumentMoniker": "MyWeb\\appsettings.json",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\appsettings.json",
+              "RelativeToolTip": "MyWeb\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-03T11:00:12.291Z",
               "EditorCaption": ""
             }
           ]

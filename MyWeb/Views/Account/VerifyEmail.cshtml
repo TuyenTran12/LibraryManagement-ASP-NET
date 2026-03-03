@@ -1,38 +1,46 @@
-﻿@using MyWeb.ViewModels;
-@model VerifyEmailViewModel;
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using MyWeb.ViewModels
+@model VerifyEmailViewModel
+
+@inject IViewLocalizer Localizer
+
 @{
-    ViewData["Title"] = "Xác thực Email";
+    ViewData["Title"] = Localizer["PageTitle"];
     Layout = "~/Views/Shared/_AccountLayout.cshtml";
 }
 
 <div class="account-container">
     <div class="account-box">
         <div class="text-center mb-4">
-            <h2 class="fw-bold text-dark text-uppercase">Quên Mật Khẩu</h2>
-            <p class="text-muted small">Nhập email để chúng tôi gửi hướng dẫn lấy lại mật khẩu</p>
+            <h2 class="fw-bold text-dark text-uppercase">@Localizer["Header"]</h2>
+            <p class="text-muted small">
+                @Localizer["Desc_Part1"]<br>
+                @Localizer["Desc_Part2"]
+            </p>
         </div>
 
         <form asp-action="VerifyEmail" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
             <div class="mb-3">
-                <label asp-for="Email" class="form-label fw-bold text-dark">Email đã đăng ký</label>
+                <label asp-for="Email" class="form-label fw-bold text-dark">@Localizer["Label_Email"]</label>
                 <div class="input-group input-group-solid">
                     <span class="input-group-text bg-white border-0">
-                        <i class="fas fa-envelope-open-text text-primary"></i>
+                        <i class="fas fa-envelope text-primary"></i>
                     </span>
-                    <input asp-for="Email" class="form-control bg-white text-dark border-0 shadow-none" placeholder="name@example.com" />
+                    <input asp-for="Email" class="form-control bg-white text-dark border-0 shadow-none"
+                           placeholder="@Localizer["Placeholder_Email"]" />
                 </div>
                 <span asp-validation-for="Email" class="text-danger small"></span>
             </div>
 
             <div class="d-grid mt-4">
-                <input type="submit" value="Gửi Xác Thực" class="btn btn-primary fw-bold shadow border-dark btn-lg" />
+                <input type="submit" value="@Localizer["Button_Send"]" class="btn btn-primary fw-bold shadow border-dark btn-lg" />
             </div>
 
             <div class="text-center mt-3">
                 <a asp-controller="Account" asp-action="Login" class="text-decoration-none text-muted small hover-link">
-                    <i class="fas fa-arrow-left me-1"></i> Quay lại
+                    <i class="fas fa-arrow-left me-1"></i> @Localizer["Link_BackToLogin"]
                 </a>
             </div>
         </form>

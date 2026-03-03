@@ -1,0 +1,58 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using MyWeb.ViewModels
+@model VerifyOTPViewModel
+
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer["PageTitle"];
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+<div class="account-container">
+    <div class="account-box">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold text-dark text-uppercase">@Localizer["Header"]</h2>
+            <p class="text-muted small">
+                @Localizer["Desc_SentTo"] <br />
+                <strong class="text-primary">@Model.Email</strong>
+            </p>
+        </div>
+
+        <form asp-action="VerifyOTP" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <input type="hidden" asp-for="Email" />
+            <input type="hidden" asp-for="ActionType" />
+
+            <div class="mb-3">
+                <label asp-for="OTP" class="form-label fw-bold text-dark">@Localizer["Label_OTP"]</label>
+                <div class="input-group input-group-solid">
+                    <span class="input-group-text bg-white border-0">
+                        <i class="fas fa-key text-primary"></i>
+                    </span>
+                    <input asp-for="OTP" class="form-control bg-white text-dark border-0 shadow-none"
+                           placeholder="@Localizer["Placeholder_OTP"]" maxlength="6" style="letter-spacing: 5px; font-weight: bold;" />
+                </div>
+                <span asp-validation-for="OTP" class="text-danger small"></span>
+            </div>
+
+            <div class="d-grid mt-4">
+                <input type="submit" value="@Localizer["Button_Confirm"]" class="btn btn-primary fw-bold shadow border-dark btn-lg" />
+            </div>
+
+            <div class="text-center mt-3">
+                @if (Model.ActionType == "Register")
+                {
+                    <p class="small text-muted">@Localizer["Text_RegisterNote"]</p>
+                }
+                else
+                {
+                    <a asp-controller="Account" asp-action="Login" class="text-decoration-none text-muted small hover-link">
+                        <i class="fas fa-arrow-left me-1"></i> @Localizer["Link_BackToLogin"]
+                    </a>
+                }
+            </div>
+        </form>
+    </div>
+</div>

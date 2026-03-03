@@ -170,6 +170,9 @@ namespace MyWeb.Migrations
                     b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<string>("CoverImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -215,6 +218,59 @@ namespace MyWeb.Migrations
                             Id = 3,
                             Name = "Mystery"
                         });
+                });
+
+            modelBuilder.Entity("MyWeb.Models.Chapter", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("ChapterNumber")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.ToTable("Chapters");
+                });
+
+            modelBuilder.Entity("MyWeb.Models.ChapterImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ChapterId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PageNumber")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ChapterId");
+
+                    b.ToTable("ChapterImages");
                 });
 
             modelBuilder.Entity("MyWeb.Models.Users", b =>
@@ -352,9 +408,41 @@ namespace MyWeb.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("MyWeb.Models.Chapter", b =>
+                {
+                    b.HasOne("MyWeb.Models.Book", "Book")
+                        .WithMany("Chapters")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+                });
+
+            modelBuilder.Entity("MyWeb.Models.ChapterImage", b =>
+                {
+                    b.HasOne("MyWeb.Models.Chapter", "Chapter")
+                        .WithMany("Images")
+                        .HasForeignKey("ChapterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Chapter");
+                });
+
+            modelBuilder.Entity("MyWeb.Models.Book", b =>
+                {
+                    b.Navigation("Chapters");
+                });
+
             modelBuilder.Entity("MyWeb.Models.Category", b =>
                 {
                     b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("MyWeb.Models.Chapter", b =>
+                {
+                    b.Navigation("Images");
                 });
 #pragma warning restore 612, 618
         }

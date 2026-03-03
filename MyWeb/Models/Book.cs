@@ -13,5 +13,8 @@ namespace MyWeb.Models
         public int? CategoryId { get; set; }
         [ForeignKey("CategoryId")]
         public Category? Category { get; set; }
+
+        public string? CoverImageUrl { get; set; }
+        public List<Chapter>? Chapters { get; set; }
     }
 }

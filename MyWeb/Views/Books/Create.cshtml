@@ -1,16 +1,19 @@
 ﻿@model MyWeb.Models.Book
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
 @{
-    ViewData["Title"] = "Thêm sách mới";
+    ViewData["Title"] = Localizer["PageTitle"];
 }
 
 <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
-            <h2 class="text-white fw-bold mb-1">Thêm Sách Mới</h2>
-            <p class="text-light opacity-75 small">Nhập thông tin chi tiết để thêm đầu sách vào hệ thống</p>
+            <h2 class="text-white fw-bold mb-1">@Localizer["Header"]</h2>
+            <p class="text-light opacity-75 small">@Localizer["Desc"]</p>
         </div>
         <a asp-action="Index" class="btn btn-outline-light px-4">
-            <i class="fas fa-arrow-left me-2"></i>Quay lại danh sách
+            <i class="fas fa-arrow-left me-2"></i>@Localizer["Link_BackToList"]
         </a>
     </div>
 
@@ -18,60 +21,67 @@
         <div class="col-md-8 col-lg-6">
             <div class="card border-0 shadow-lg">
                 <div class="card-body p-4 bg-white rounded">
-                    <form asp-action="Create" method="post">
+
+                    <form asp-action="Create" method="post" enctype="multipart/form-data">
 
                         <div class="mb-3">
-                            <label asp-for="Title" class="form-label fw-bold text-dark">Tiêu đề sách</label>
+                            <label asp-for="Title" class="form-label fw-bold text-dark">@Localizer["Label_Title"]</label>
                             <div class="input-group input-group-solid">
                                 <span class="input-group-text bg-white border-0">
                                     <i class="fas fa-book text-primary"></i>
                                 </span>
-                                <input asp-for="Title"
-                                       class="form-control bg-white text-dark border-0 shadow-none"
-                                       placeholder="Nhập tên sách..." />
+                                <input asp-for="Title" class="form-control bg-white text-dark border-0 shadow-none" placeholder="@Localizer["Placeholder_Title"]" />
                             </div>
                             <span asp-validation-for="Title" class="text-danger small"></span>
                         </div>
 
                         <div class="mb-3">
-                            <label asp-for="Author" class="form-label fw-bold text-dark">Tác giả</label>
+                            <label asp-for="Author" class="form-label fw-bold text-dark">@Localizer["Label_Author"]</label>
                             <div class="input-group input-group-solid">
                                 <span class="input-group-text bg-white border-0">
                                     <i class="fas fa-user-edit text-primary"></i>
                                 </span>
-                                <input asp-for="Author"
-                                       class="form-control bg-white text-dark border-0 shadow-none"
-                                       placeholder="Tên tác giả..." />
+                                <input asp-for="Author" class="form-control bg-white text-dark border-0 shadow-none" placeholder="@Localizer["Placeholder_Author"]" />
                             </div>
                             <span asp-validation-for="Author" class="text-danger small"></span>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label asp-for="YearPublished" class="form-label fw-bold text-dark">Năm xuất bản</label>
+                                <label asp-for="YearPublished" class="form-label fw-bold text-dark">@Localizer["Label_Year"]</label>
                                 <div class="input-group input-group-solid">
                                     <span class="input-group-text bg-white border-0">
                                         <i class="fas fa-calendar-alt text-primary"></i>
                                     </span>
-                                    <input asp-for="YearPublished" type="number"
-                                           class="form-control bg-white text-dark border-0 shadow-none"
-                                           placeholder="YYYY" />
+                                    <input asp-for="YearPublished" type="number" class="form-control bg-white text-dark border-0 shadow-none" placeholder="@Localizer["Placeholder_Year"]" />
                                 </div>
                                 <span asp-validation-for="YearPublished" class="text-danger small"></span>
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label asp-for="CategoryId" class="form-label fw-bold text-dark">Thể loại</label>
+                                <label asp-for="CategoryId" class="form-label fw-bold text-dark">@Localizer["Label_Category"]</label>
                                 <div class="input-group input-group-solid">
                                     <span class="input-group-text bg-white border-0">
                                         <i class="fas fa-tags text-primary"></i>
                                     </span>
-                                    <select asp-for="CategoryId" asp-items="ViewBag.Categories"
-                                            class="form-select bg-white text-dark border-0 shadow-none">
-                                        <option value="">-- Chọn loại --</option>
+                                    <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-select bg-white text-dark border-0 shadow-none">
+                                        <option value="">@Localizer["Option_SelectCategory"]</option>
                                     </select>
                                 </div>
                                 <span asp-validation-for="CategoryId" class="text-danger small"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold text-dark">@Localizer["Label_CoverImage"]</label>
+                            <div class="input-group input-group-solid p-1 align-items-center">
+                                <span class="input-group-text bg-white border-0">
+                                    <i class="fas fa-image text-primary"></i>
+                                </span>
+                                <input type="file" name="coverImage" class="form-control bg-white text-dark border-0 shadow-none" accept="image/*" />
+                            </div>
+                            <div class="form-text text-muted mt-2 small">
+                                <i class="fas fa-info-circle me-1"></i> Để trống nếu muốn dùng ảnh mặc định. Hỗ trợ JPG, PNG, WEBP.
                             </div>
                         </div>
 
@@ -79,7 +89,7 @@
 
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary btn-lg shadow-sm">
-                                <i class="fas fa-save me-2"></i>Lưu thông tin sách
+                                <i class="fas fa-save me-2"></i>@Localizer["Button_Save"]
                             </button>
                         </div>
                     </form>
@@ -95,27 +105,40 @@
     }
 }
 <style>
-    /* Tạo khung viền đen bao quanh toàn bộ cụm input */
     .input-group-solid {
-        border: 2px solid #000000 !important; /* Viền đen dày 2px */
+        border: 2px solid #000000 !important;
         border-radius: 6px;
-        overflow: hidden; /* Cắt góc tròn cho nội dung bên trong */
-        background-color: #ffffff; /* Nền trắng */
+        overflow: hidden;
+        background-color: #ffffff;
     }
 
-        /* Hiệu ứng khi click vào nhập liệu (Focus) */
         .input-group-solid:focus-within {
-            border-color: #0d6efd !important; /* Đổi viền sang xanh khi nhập */
+            border-color: #0d6efd !important;
             box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.2);
         }
 
-    /* Đảm bảo chữ trong ô nhập luôn màu đen */
     .form-control, .form-select {
         color: #000000 !important;
     }
 
-        /* Màu chữ placeholder (gợi ý) */
         .form-control::placeholder {
             color: #888 !important;
+        }
+
+    /* Làm đẹp nút chọn file mặc định của trình duyệt */
+    input[type="file"]::file-selector-button {
+        border: none;
+        background: #e9ecef;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        color: #495057;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.2s;
+        margin-right: 15px;
+    }
+
+        input[type="file"]::file-selector-button:hover {
+            background: #dde0e3;
         }
 </style>

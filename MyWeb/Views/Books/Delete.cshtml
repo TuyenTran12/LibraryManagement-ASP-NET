@@ -1,29 +1,30 @@
 ﻿@model MyWeb.Models.Book
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
 @{
-    ViewData["Title"] = "Xóa sách";
+    ViewData["Title"] = Localizer["PageTitle"];
 }
 
 <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
-            <h2 class="text-white fw-bold mb-1">Xóa Sách</h2>
-            <p class="text-light opacity-75 small">Xác nhận thông tin sách trước khi xóa khỏi hệ thống</p>
+            <h2 class="text-white fw-bold mb-1">@Localizer["Header"]</h2>
+            <p class="text-light opacity-75 small">@Localizer["Desc"]</p>
         </div>
         <a asp-action="Index" class="btn btn-outline-light px-4 shadow-sm">
-            <i class="fas fa-arrow-left me-2"></i>Quay lại
+            <i class="fas fa-arrow-left me-2"></i>@Localizer["Link_Back"]
         </a>
     </div>
 
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-7">
-
             <div class="card border-0 shadow-lg p-4" style="background-color: #f8f9fa; border-radius: 12px;">
-
                 <div class="alert alert-danger border-2 border-danger d-flex align-items-center" role="alert">
                     <i class="fas fa-exclamation-triangle fa-2x me-3"></i>
                     <div>
-                        <strong>Cảnh báo!</strong> Bạn có chắc chắn muốn xóa cuốn sách này không?
-                        <br><small>Hành động này không thể hoàn tác.</small>
+                        <strong>@Localizer["Alert_Warning"]</strong> @Localizer["Alert_ConfirmMessage"]<br>
+                        <small>@Localizer["Alert_Irreversible"]</small>
                     </div>
                 </div>
 
@@ -31,60 +32,45 @@
                     <input type="hidden" asp-for="Id" />
 
                     <div class="mb-3">
-                        <label class="form-label fw-bold text-dark">Tiêu đề sách</label>
+                        <label class="form-label fw-bold text-dark">@Localizer["Label_Title"]</label>
                         <div class="input-group input-group-solid">
-                            <span class="input-group-text bg-white border-0">
-                                <i class="fas fa-book text-danger"></i>
-                            </span>
-                            <input class="form-control bg-white text-dark border-0 shadow-none"
-                                   value="@Model.Title" disabled />
+                            <span class="input-group-text bg-white border-0"><i class="fas fa-book text-danger"></i></span>
+                            <input class="form-control bg-white text-dark border-0 shadow-none" value="@Model.Title" disabled />
                         </div>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label fw-bold text-dark">Tác giả</label>
+                        <label class="form-label fw-bold text-dark">@Localizer["Label_Author"]</label>
                         <div class="input-group input-group-solid">
-                            <span class="input-group-text bg-white border-0">
-                                <i class="fas fa-user text-danger"></i>
-                            </span>
-                            <input class="form-control bg-white text-dark border-0 shadow-none"
-                                   value="@Model.Author" disabled />
+                            <span class="input-group-text bg-white border-0"><i class="fas fa-user text-danger"></i></span>
+                            <input class="form-control bg-white text-dark border-0 shadow-none" value="@Model.Author" disabled />
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label class="form-label fw-bold text-dark">Năm xuất bản</label>
+                            <label class="form-label fw-bold text-dark">@Localizer["Label_Year"]</label>
                             <div class="input-group input-group-solid">
-                                <span class="input-group-text bg-white border-0">
-                                    <i class="fas fa-calendar-alt text-danger"></i>
-                                </span>
-                                <input class="form-control bg-white text-dark border-0 shadow-none"
-                                       value="@Model.YearPublished" disabled />
+                                <span class="input-group-text bg-white border-0"><i class="fas fa-calendar-alt text-danger"></i></span>
+                                <input class="form-control bg-white text-dark border-0 shadow-none" value="@Model.YearPublished" disabled />
                             </div>
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <label class="form-label fw-bold text-dark">Thể loại</label>
+                            <label class="form-label fw-bold text-dark">@Localizer["Label_Category"]</label>
                             <div class="input-group input-group-solid">
-                                <span class="input-group-text bg-white border-0">
-                                    <i class="fas fa-tags text-danger"></i>
-                                </span>
-                                <input class="form-control bg-white text-dark border-0 shadow-none"
-                                       value="@(Model.Category?.Name ?? "N/A")" disabled />
+                                <span class="input-group-text bg-white border-0"><i class="fas fa-tags text-danger"></i></span>
+                                <input class="form-control bg-white text-dark border-0 shadow-none" value="@(Model.Category?.Name ?? "N/A")" disabled />
                             </div>
                         </div>
                     </div>
 
                     <div class="d-flex justify-content-end mt-4">
-                        <a asp-action="Index" class="btn btn-secondary me-2 px-4 fw-bold border-dark">
-                            Hủy bỏ
-                        </a>
+                        <a asp-action="Index" class="btn btn-secondary me-2 px-4 fw-bold border-dark">@Localizer["Button_Cancel"]</a>
                         <button type="submit" class="btn btn-danger px-4 fw-bold shadow border-dark">
-                            <i class="fas fa-trash-alt me-2"></i>XÁC NHẬN XÓA
+                            <i class="fas fa-trash-alt me-2"></i>@Localizer["Button_ConfirmDelete"]
                         </button>
                     </div>
-
                 </form>
             </div>
         </div>
@@ -92,7 +78,6 @@
 </div>
 
 <style>
-    /* Khung viền đen bao quanh */
     .input-group-solid {
         border: 2px solid #000000 !important;
         border-radius: 6px;
@@ -101,21 +86,18 @@
         display: flex;
     }
 
-    /* Đảm bảo chữ trong ô nhập luôn màu đen dù bị disabled */
     .form-control:disabled, .form-control[readonly] {
-        background-color: #ffffff !important; /* Giữ nền trắng để dễ đọc */
+        background-color: #ffffff !important;
         color: #000000 !important;
         opacity: 1;
     }
 
-    /* Bỏ viền gạch dọc giữa icon và input */
     .input-group-text {
         border-right: none !important;
     }
 
-    /* Tinh chỉnh nút bấm */
     .btn-danger {
         background-color: #dc3545;
-        border: 2px solid #000000; /* Viền đen cho nút xóa thêm phần chắc chắn */
+        border: 2px solid #000000;
     }
 </style>

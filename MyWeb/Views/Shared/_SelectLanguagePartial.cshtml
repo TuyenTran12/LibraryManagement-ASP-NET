@@ -1,0 +1,65 @@
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Options
+@using System.Globalization
+
+@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+
+@{
+    // 1. Lấy chuẩn ngôn ngữ hiện tại từ hệ thống (Cách chính xác nhất)
+    var currentCulture = CultureInfo.CurrentUICulture.Name; // Ví dụ: "vi-VN" hoặc "en-US"
+
+    // 2. Kiểm tra logic hiển thị (Dùng StartsWith để an toàn hơn)
+    var isVietnamese = currentCulture.StartsWith("vi", StringComparison.OrdinalIgnoreCase);
+
+    var currentFlag = isVietnamese ? "vn.png" : "us.png";
+    var currentLabel = isVietnamese ? "Tiếng Việt" : "English";
+
+    // 3. Lấy đường dẫn hiện tại để load lại trang
+    var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}{Context.Request.QueryString}";
+}
+
+<form id="languageForm" asp-controller="Account" asp-action="ChangeLanguage"
+      asp-route-returnUrl="@returnUrl" method="post" style="display:none;">
+    <input type="hidden" name="culture" id="cultureInput" value="" />
+</form>
+
+<div class="dropdown">
+    <button class="btn btn-outline-light dropdown-toggle btn-sm fw-bold border-secondary d-flex align-items-center gap-2"
+            type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="https://flagcdn.com/w20/@currentFlag" alt="flag" style="width:20px; height: 15px; object-fit: cover;">
+        <span>@currentLabel</span>
+    </button>
+
+    <ul class="dropdown-menu dropdown-menu-end shadow mt-2" aria-labelledby="languageDropdown">
+        <li>
+            <a class="dropdown-item d-flex align-items-center gap-2" href="javascript:void(0);" onclick="setLanguage('vi-VN')">
+                <img src="https://flagcdn.com/w20/vn.png" alt="VN" style="width:20px;">
+                <span>Tiếng Việt</span>
+                @if (isVietnamese)
+                {
+                    <i class="fas fa-check text-success ms-auto small"></i>
+                }
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item d-flex align-items-center gap-2" href="javascript:void(0);" onclick="setLanguage('en-US')">
+                <img src="https://flagcdn.com/w20/us.png" alt="US" style="width:20px;">
+                <span>English</span>
+                @if (!isVietnamese)
+                {
+                    <i class="fas fa-check text-success ms-auto small"></i>
+                }
+            </a>
+        </li>
+    </ul>
+</div>
+
+<script>
+    function setLanguage(cultureCode) {
+        document.getElementById('cultureInput').value = cultureCode;
+        document.getElementById('languageForm').submit();
+    }
+</script>

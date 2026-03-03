@@ -1,0 +1,292 @@
+﻿@model IEnumerable<string>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Giữ nguyên các Style bạn đã có */
+        body {
+            background-color: #121212;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .top-toolbar {
+            height: 60px;
+            background-color: #000000;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            flex-shrink: 0;
+        }
+
+        .library-logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: color 0.2s;
+        }
+
+            .library-logo:hover {
+                color: #f5c518;
+            }
+
+        .page-selector {
+            background-color: #222;
+            color: #f5c518;
+            border: 1px solid #444;
+            border-radius: 6px;
+            padding: 4px 15px;
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+            text-align: center;
+            appearance: none;
+        }
+
+        .main-reader-area {
+            flex-grow: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1a1a1a;
+            overflow: hidden;
+        }
+
+        .nav-zone {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 25%;
+            cursor: pointer;
+            z-index: 50;
+        }
+
+        .left-zone {
+            left: 0;
+        }
+
+        .right-zone {
+            right: 0;
+        }
+
+        .manga-display-container {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .manga-page {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+            display: none;
+        }
+
+            .manga-page.active {
+                display: block;
+            }
+
+            .manga-page.fit-width-mode {
+                width: 100%;
+                height: auto;
+                max-height: none;
+            }
+
+        .main-reader-area.scrollable {
+            overflow-y: auto;
+            align-items: flex-start;
+        }
+
+        body.is-fullscreen .top-toolbar, body.is-fullscreen .nav-zone {
+            display: none !important;
+        }
+
+        /* Style cho nút bị vô hiệu hóa */
+        .btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-toolbar d-flex justify-content-between align-items-center px-4">
+        <div class="d-flex align-items-center gap-4">
+            <a href="/" class="library-logo">
+                <i class="fas fa-book-open text-primary me-2"></i> MyLibrary
+            </a>
+
+            <div class="d-flex gap-2 align-items-center">
+                <button class="btn btn-outline-light btn-sm fw-bold px-3"
+                        onclick="prevChapter()"
+                        @(ViewBag.PrevChapterId == null ? "disabled" : "")>
+                    <i class="fas fa-step-backward me-1"></i> Chương trước
+                </button>
+
+                <button class="btn btn-outline-light btn-sm fw-bold px-3"
+                        onclick="nextChapter()"
+                        @(ViewBag.NextChapterId == null ? "disabled" : "")>
+                    Chương sau <i class="fas fa-step-forward ms-1"></i>
+                </button>
+
+                <button id="btnToggleSize" class="btn btn-secondary btn-sm fw-bold ms-3" onclick="toggleImageSize()" style="width: 160px;">
+                    <i class="fas fa-arrows-alt-h me-1"></i> Vừa chiều ngang
+                </button>
+
+                <button class="btn btn-warning btn-sm fw-bold text-dark" onclick="toggleFullScreen()" title="Toàn màn hình">
+                    <i class="fas fa-expand me-1"></i> Fullscreen
+                </button>
+            </div>
+        </div>
+
+        <div>
+            <select id="pageSelectDropdown" class="page-selector" onchange="goToPage(this.value)">
+                @if (Model != null)
+                {
+                    var total = Model.Count();
+                    for (int i = 0; i < total; i++)
+                    {
+                        <option value="@i">@(i + 1)</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="main-reader-area" id="mainReaderArea">
+        <div class="nav-zone left-zone" onclick="prevPage()"></div>
+        <div class="manga-display-container">
+            @if (Model != null && Model.Any())
+            {
+                var pages = Model.ToList();
+                for (int i = 0; i < pages.Count; i++)
+                {
+                    <img src="@pages[i]" class="manga-page @(i == 0 ? "active" : "hidden")" id="page-@i">
+                }
+            }
+        </div>
+        <div class="nav-zone right-zone" onclick="nextPage()"></div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const totalPages = @(Model?.Count() ?? 0);
+        let isFitWidth = false;
+
+        // Lấy ID chương từ ViewBag gửi xuống
+        const nextChapterId = '@ViewBag.NextChapterId';
+        const prevChapterId = '@ViewBag.PrevChapterId';
+
+        function updateView() {
+            if(totalPages === 0) return;
+            document.querySelectorAll('.manga-page').forEach(img => img.classList.remove('active'));
+            document.getElementById(`page-${currentIndex}`).classList.add('active');
+            document.getElementById('pageSelectDropdown').value = currentIndex;
+            applySizeToCurrent();
+            document.getElementById('mainReaderArea').scrollTop = 0;
+        }
+
+        function nextPage() {
+            if (currentIndex < totalPages - 1) {
+                currentIndex++;
+                updateView();
+            } else {
+                nextChapter(); // Hết trang tự qua chương sau
+            }
+        }
+
+        function prevPage() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateView();
+            } else {
+                prevChapter(); // Trang 1 lùi lại tự qua chương trước
+            }
+        }
+
+        function goToPage(index) {
+            currentIndex = parseInt(index);
+            updateView();
+        }
+
+        // ================= CHUYỂN CHƯƠNG THẬT =================
+        function nextChapter() {
+            if (nextChapterId && nextChapterId !== '') {
+                // Thay đổi URL để load chương mới
+                window.location.href = '/Home/Read/' + nextChapterId;
+            }
+        }
+
+        function prevChapter() {
+            if (prevChapterId && prevChapterId !== '') {
+                window.location.href = '/Home/Read/' + prevChapterId;
+            }
+        }
+
+        // ================= GIỮ NGUYÊN LOGIC KÍCH THƯỚC CỦA BẠN =================
+        function toggleImageSize() {
+            isFitWidth = !isFitWidth;
+            const btn = document.getElementById('btnToggleSize');
+            if (isFitWidth) {
+                btn.innerHTML = '<i class="fas fa-compress me-1"></i> Đúng size';
+                btn.classList.replace('btn-secondary', 'btn-primary');
+            } else {
+                btn.innerHTML = '<i class="fas fa-arrows-alt-h me-1"></i> Vừa chiều ngang';
+                btn.classList.replace('btn-primary', 'btn-secondary');
+            }
+            applySizeToCurrent();
+        }
+
+        function applySizeToCurrent() {
+            const img = document.querySelector('.manga-page.active');
+            const readerArea = document.getElementById('mainReaderArea');
+            if(!img) return;
+            if (isFitWidth) {
+                img.classList.add('fit-width-mode');
+                readerArea.classList.add('scrollable');
+            } else {
+                img.classList.remove('fit-width-mode');
+                readerArea.classList.remove('scrollable');
+            }
+        }
+
+        function toggleFullScreen() {
+            const elem = document.documentElement;
+            if (!document.fullscreenElement) {
+                elem.requestFullscreen().catch(err => console.log(err));
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        document.addEventListener('fullscreenchange', () => {
+            if (document.fullscreenElement) document.body.classList.add('is-fullscreen');
+            else document.body.classList.remove('is-fullscreen');
+            applySizeToCurrent();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "ArrowRight") nextPage();
+            if (e.key === "ArrowLeft") prevPage();
+        });
+    </script>
+</body>
+</html>
