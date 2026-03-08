@@ -28,36 +28,29 @@ namespace MyWeb.Controllers
 
             if (firstChapter != null)
             {
-                // Ngay lập tức chuyển hướng sang link chuẩn: Home/Read/ChapterId
                 return RedirectToAction("Read", "Home", new { id = firstChapter.Id });
             }
 
-            // Nếu truyện chưa có chương nào, quay lại trang chủ kèm thông báo (tùy chọn)
             TempData["ErrorMessage"] = "Truyện này hiện chưa có chương nào để đọc!";
             return RedirectToAction("Index", "Home");
         }
         public async Task<IActionResult> Read(int id)
         {
-            // 1. Lấy thông tin chương hiện tại
-            var chapter = await _chapterRepository.GetChapterByIdAsync(id);
+            var chapter = await _chapterRepository.GetChapterWithImagesAsync(id);
             if (chapter == null) return NotFound("Không tìm thấy chương truyện này!");
 
-            // 2. Lấy tất cả chương của bộ truyện này để tìm chương lân cận
             var allChapters = await _chapterRepository.GetChaptersByBookIdAsync(chapter.BookId);
 
-            // Tìm chương có số thứ tự lớn hơn gần nhất (Chương sau)
             var nextChapter = allChapters
                 .Where(c => c.ChapterNumber > chapter.ChapterNumber)
                 .OrderBy(c => c.ChapterNumber)
                 .FirstOrDefault();
 
-            // Tìm chương có số thứ tự nhỏ hơn gần nhất (Chương trước)
             var prevChapter = allChapters
                 .Where(c => c.ChapterNumber < chapter.ChapterNumber)
                 .OrderByDescending(c => c.ChapterNumber)
                 .FirstOrDefault();
 
-            // Gửi ID của chương lân cận sang View
             ViewBag.NextChapterId = nextChapter?.Id;
             ViewBag.PrevChapterId = prevChapter?.Id;
 

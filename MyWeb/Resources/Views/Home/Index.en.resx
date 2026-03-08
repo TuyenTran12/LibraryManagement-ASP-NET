@@ -124,7 +124,7 @@
     <value>Read Now</value>
   </data>
   <data name="Hero_Desc" xml:space="preserve">
-    <value>Discover, read, and expand your knowledge with our vast collection of books.</value>
+    <value>Discover, read, and expand your knowledge with our vast collection of mangas.</value>
   </data>
   <data name="Hero_Title" xml:space="preserve">
     <value>Welcome to Manga Library</value>
@@ -132,8 +132,8 @@
   <data name="Label_Author" xml:space="preserve">
     <value>Author:</value>
   </data>
-  <data name="Label_Year" xml:space="preserve">
-    <value>Year:</value>
+  <data name="Label_Published" xml:space="preserve">
+    <value>Published:</value>
   </data>
   <data name="Link_SeeAll" xml:space="preserve">
     <value>See all</value>
@@ -155,5 +155,9 @@
   </data>
   <data name="Section_Trending" xml:space="preserve">
     <value>Trending Books</value>
+  </data>
+  <data name="Alt_CoverOf" xml:space="preserve">
+    <value>Cover of</value>
+    <comment>Ảnh bìa của</comment>
   </data>
 </root>

@@ -6,72 +6,75 @@
     var existingChapters = ViewBag.ExistingChapters as IEnumerable<Chapter>;
 }
 
-<div class="container mt-5">
-    <div class="d-flex justify-content-between align-items-center mb-4">
+<div class="container mt-5 pb-5">
+    <div class="d-flex justify-content-between align-items-center mb-5 p-4 rounded-4 shadow-sm" style="background: rgba(255,255,255,0.05);">
         <div>
-            <h2 class="text-white fw-bold mb-1">Đăng Chương Mới</h2>
-            <p class="text-light opacity-75 small">Thêm chương mới cho tác phẩm: <strong class="text-warning">@ViewBag.BookTitle</strong></p>
+            <h2 class="text-white fw-bold mb-1 header-title">Đăng Chương Mới</h2>
+            <p class="text-light opacity-75 mb-0">Thêm chương cho: <strong class="text-warning book-title-header">@ViewBag.BookTitle</strong></p>
         </div>
-        <a asp-controller="Books" asp-action="Index" class="btn btn-outline-light px-4 shadow-sm">
+        <a asp-controller="Books" asp-action="Index" class="btn btn-outline-light px-4 rounded-pill shadow-sm hover-elevate">
             <i class="fas fa-arrow-left me-2"></i>Quay lại danh sách
         </a>
     </div>
 
     <div class="row justify-content-center">
-        <div class="col-md-10">
-            <div class="card border-0 shadow-lg p-4 mb-5" style="background-color: #f8f9fa; border-radius: 12px;">
+        <div class="col-md-11 col-lg-10">
+
+            <div class="card border-0 shadow-lg p-5 mb-5 main-upload-card">
                 <form asp-action="UploadChapter" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="bookId" value="@ViewBag.BookId" />
 
+                    <h4 class="text-dark fw-bold mb-4 pb-2 border-bottom border-2"><i class="fas fa-file-upload text-primary me-2"></i> Nhập thông tin chương</h4>
+
                     <div class="row">
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-4 mb-4">
                             <label class="form-label fw-bold text-dark">Số Chương <span class="text-danger">*</span></label>
-                            <div class="input-group input-group-solid border border-secondary rounded">
-                                <span class="input-group-text bg-white border-0">
+                            <div class="input-group input-group-solid rounded-pill overflow-hidden border">
+                                <span class="input-group-text bg-white border-0 ps-4">
                                     <i class="fas fa-hashtag text-primary"></i>
                                 </span>
-                                <input type="number" step="0.1" name="chapterNumber" class="form-control bg-white text-dark border-0 shadow-none" placeholder="VD: 1, 1.5..." required />
+                                <input type="number" step="0.1" name="chapterNumber" class="form-control bg-white text-dark border-0 shadow-none py-3" placeholder="VD: 1, 1.5..." required />
                             </div>
                         </div>
 
-                        <div class="col-md-8 mb-3">
+                        <div class="col-md-8 mb-4">
                             <label class="form-label fw-bold text-dark">Tiêu đề chương</label>
-                            <div class="input-group input-group-solid border border-secondary rounded">
-                                <span class="input-group-text bg-white border-0">
+                            <div class="input-group input-group-solid rounded-pill overflow-hidden border">
+                                <span class="input-group-text bg-white border-0 ps-4">
                                     <i class="fas fa-heading text-primary"></i>
                                 </span>
-                                <input type="text" name="title" class="form-control bg-white text-dark border-0 shadow-none" placeholder="VD: Cuộc chạm trán (Tùy chọn)" />
+                                <input type="text" name="title" class="form-control bg-white text-dark border-0 shadow-none py-3" placeholder="VD: Cuộc chạm trán (Tùy chọn)" />
                             </div>
                         </div>
                     </div>
 
-                    <div class="mb-4 mt-2">
+                    <div class="mb-5 mt-2">
                         <label class="form-label fw-bold text-dark">Chọn các trang truyện <span class="text-danger">*</span></label>
-                        <div class="input-group input-group-solid p-1 align-items-center border border-primary rounded" style="background-color: #f8faff;">
+                        <div class="input-group input-group-solid p-2 align-items-center border-primary rounded-pill upload-file-zone" style="background-color: #f0f7ff;">
                             <span class="input-group-text border-0" style="background-color: transparent;">
-                                <i class="fas fa-images text-primary fs-5"></i>
+                                <i class="fas fa-images text-primary fs-4"></i>
                             </span>
-                            <input type="file" name="pages" class="form-control text-dark border-0 shadow-none" style="background-color: transparent;" accept="image/*" multiple required />
+                            <input type="file" name="pages" class="form-control text-dark border-0 shadow-none custom-file-input" style="background-color: transparent;" accept="image/*" multiple required />
                         </div>
-                        <div class="form-text text-muted mt-2 small">
-                            <i class="fas fa-lightbulb text-warning me-1"></i> <strong>Mẹo:</strong> Đặt tên file theo thứ tự (01.jpg, 02.jpg...) để hệ thống sắp xếp đúng.
+                        <div class="form-text text-muted mt-2 ps-3 small">
+                            <i class="fas fa-lightbulb text-warning me-1"></i> <strong>Mẹo:</strong> Tên file theo thứ tự (01.jpg, 02.jpg...) để hệ thống sắp xếp đúng.
                         </div>
                     </div>
 
-                    <div class="d-grid">
-                        <button type="submit" class="btn btn-primary btn-lg fw-bold shadow-sm">
+                    <div class="d-grid px-5">
+                        <button type="submit" class="btn btn-primary btn-lg fw-bold shadow rounded-pill py-3 hover-scale">
                             <i class="fas fa-cloud-upload-alt me-2"></i>Tải lên Cloud & Lưu Chương
                         </button>
                     </div>
                 </form>
             </div>
 
-            <div class="management-section p-4 shadow-lg" style="background-color: #ffffff; border-radius: 12px;">
-                <h3 class="text-dark fw-bold mb-4 border-bottom pb-2">
+            <div class="management-section p-5 shadow-lg main-manage-card">
+                <h3 class="text-dark fw-bold mb-4 border-bottom pb-3 border-2">
                     <i class="fas fa-list-ol text-primary me-2"></i>Quản lý các chương đã đăng
                 </h3>
 
-                <div class="accordion" id="chaptersAccordion">
+                <div class="accordion chapters-accordion-custom" id="chaptersAccordion">
                     @if (existingChapters != null && existingChapters.Any())
                     {
                         int index = 0;
@@ -80,34 +83,46 @@
                             string collapseId = $"collapse_{chapter.Id}";
                             string headingId = $"heading_{chapter.Id}";
 
-                            <div class="accordion-item border mb-3 rounded shadow-sm">
-                                <h2 class="accordion-header d-flex" id="@headingId">
-                                    <button class="accordion-button @(index == 0 ? "" : "collapsed") fw-bold text-dark bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#@collapseId">
-                                        Chương @chapter.ChapterNumber - @chapter.Title
-                                        <span class="badge bg-primary ms-3">@(chapter.Images?.Count ?? 0) trang</span>
+                            <div class="accordion-item mb-4 shadow-sm">
+                                <h2 class="accordion-header d-flex align-items-center" id="@headingId">
+                                    <button class="accordion-button @(index == 0 ? "" : "collapsed") fw-bold text-dark acc-btn-custom" type="button" data-bs-toggle="collapse" data-bs-target="#@collapseId">
+                                        <div class="d-flex align-items-center justify-content-between w-100 me-3">
+                                            <span>Chương @chapter.ChapterNumber - @chapter.Title</span>
+                                            <span class="badge rounded-pill bg-primary shadow-sm px-3 py-2">@(chapter.Images?.Count ?? 0) trang</span>
+                                        </div>
                                     </button>
-                                    <button type="button" class="btn btn-danger rounded-0 px-4" onclick="deleteEntireChapter(@chapter.Id, this)" title="Xóa chương này khỏi SQL">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
+
+                                    <div class="action-buttons-header d-flex gap-2 pe-3">
+                                        <button type="button" class="btn btn-sm btn-success rounded-pill px-3 shadow-sm hover-elevate" onclick="triggerAddPages(@chapter.Id)" title="Thêm trang mới vào chương này">
+                                            <i class="fas fa-plus me-1"></i> Thêm trang
+                                        </button>
+
+                                        <button type="button" class="btn btn-sm btn-danger rounded-pill px-3 shadow-sm hover-elevate" onclick="deleteEntireChapter(@chapter.Id, this)" title="Xóa chương này khỏi SQL">
+                                            <i class="fas fa-trash-alt me-1"></i> Xóa
+                                        </button>
+                                    </div>
                                 </h2>
                                 <div id="@collapseId" class="accordion-collapse collapse @(index == 0 ? "show" : "")" data-bs-parent="#chaptersAccordion">
-                                    <div class="accordion-body bg-white">
-                                        <p class="text-muted small mb-3"><i class="fas fa-info-circle me-1"></i> Kéo thả để đổi thứ tự trang.</p>
+                                    <div class="accordion-body bg-white p-4">
+                                        <div class="alert alert-primary rounded-3 small py-2 mb-4" role="alert">
+                                            <i class="fas fa-info-circle me-1"></i> Kéo thả để đổi thứ tự trang.
+                                        </div>
 
-                                        <div class="sortable-image-list d-flex flex-wrap gap-3" data-chapter-id="@chapter.Id">
+                                        <div class="sortable-image-list d-flex flex-wrap gap-4" data-chapter-id="@chapter.Id">
                                             @if (chapter.Images != null)
                                             {
-                                                // Đã ép kiểu nên OrderBy hoạt động bình thường
                                                 foreach (var img in chapter.Images.OrderBy(i => i.PageNumber))
                                                 {
-                                                    <div class="image-box position-relative border rounded" data-id="@img.Id" style="width: 110px; height: 150px; cursor: grab;">
-                                                        <span class="position-absolute top-0 start-0 badge rounded-pill bg-dark page-badge" style="z-index: 2; transform: translate(-30%, -30%);">
+                                                    <div class="image-box position-relative shadow rounded-3 hover-card-img" data-id="@img.Id">
+                                                        <span class="position-absolute badge rounded-pill bg-dark page-badge shadow-sm">
                                                             @img.PageNumber
                                                         </span>
-                                                        <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-1 rounded-circle" style="z-index: 2; padding: 2px 6px;" onclick="deleteImage(@img.Id, this)">
-                                                            <i class="fas fa-times" style="font-size: 10px;"></i>
+
+                                                        <button type="button" class="btn-delete-page-circle shadow" onclick="deleteImage(@img.Id, this)" title="Xóa trang này">
+                                                            <i class="fas fa-times"></i>
                                                         </button>
-                                                        <img src="@img.ImageUrl" class="w-100 h-100 object-fit-cover rounded" alt="Page">
+
+                                                        <img src="@img.ImageUrl" class="manga-img-managed rounded-3" alt="Page">
                                                     </div>
                                                 }
                                             }
@@ -120,7 +135,10 @@
                     }
                     else
                     {
-                        <div class="text-center p-5 text-muted">Chưa có chương nào được đăng.</div>
+                        <div class="text-center p-5 text-muted bg-light rounded-4 border">
+                            <i class="fas fa-folder-open fs-1 mb-3 opacity-50"></i>
+                            <p>Chưa có chương nào được đăng cho bộ truyện này.</p>
+                        </div>
                     }
                 </div>
             </div>
@@ -128,36 +146,176 @@
     </div>
 </div>
 
+<input type="file" id="hiddenAddPagesInput" accept="image/*" multiple style="display: none;" onchange="uploadNewPages(this)" />
+<input type="hidden" id="activeChapterIdForUpload" />
+
 <style>
     body {
-        background-color: #121212;
+        background-color: #1a1a1a;
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        color: #eee;
     }
 
-    .input-group-solid:focus-within {
-        border-color: #0d6efd !important;
-        box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.15);
+    /* Hiệu ứng chung */
+    .hover-elevate {
+        transition: all 0.2s ease-in-out;
     }
 
-    .object-fit-cover {
+        .hover-elevate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+        }
+
+    .hover-scale {
+        transition: all 0.2s ease-in-out;
+    }
+
+        .hover-scale:hover {
+            transform: scale(1.02);
+        }
+
+    /* Custom Input fields */
+    .input-group-solid {
+        border: 2px solid #e0e0e0 !important;
+        transition: all 0.2s;
+        background: white;
+    }
+
+        .input-group-solid:focus-within {
+            border-color: #0d6efd !important;
+            box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.15) !important;
+        }
+
+    .custom-file-input::file-selector-button {
+        border-radius: 50px;
+        padding: 8px 20px;
+        background-color: #0d6efd;
+        color: white;
+        border: none;
+        font-weight: bold;
+        margin-right: 10px;
+        transition: 0.2s;
+    }
+
+        .custom-file-input::file-selector-button:hover {
+            background-color: #0b5ed7;
+        }
+
+    /* Main Cards */
+    .main-upload-card, .main-manage-card {
+        border-radius: 20px !important;
+    }
+
+    /* Accordion Customization */
+    .chapters-accordion-custom .accordion-item {
+        border-radius: 15px !important;
+        overflow: hidden;
+        border: 1px solid #eee;
+        background: #fff;
+    }
+
+    .chapters-accordion-custom .accordion-header {
+        background-color: #f8f9fa;
+    }
+
+    .acc-btn-custom {
+        background-color: #f8f9fa !important;
+        padding: 20px !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+    }
+
+        .acc-btn-custom:not(.collapsed) {
+            background-color: #e7f1ff !important;
+            color: #0c63e4 !important;
+        }
+
+        .acc-btn-custom::after {
+            margin-right: 10px;
+        }
+    /* Di chuyển mũi tên vào trong tí */
+
+    /* NÚT XÓA TRANG TRÒN ĐỎ (YÊU CẦU CHÍNH) */
+    .btn-delete-page-circle {
+        position: absolute;
+        top: -12px;
+        right: -12px;
+        width: 30px;
+        height: 30px;
+        background-color: #dc3545; /* Màu đỏ btn-danger */
+        color: white;
+        border: 2px solid white; /* Viền trắng cho nổi bật */
+        border-radius: 50%; /* Hình cầu tròn */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        padding: 0;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.2s ease;
+    }
+
+        .btn-delete-page-circle:hover {
+            background-color: #bb2d3b; /* Đỏ đậm hơn khi hover */
+            transform: scale(1.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        /* Đảm bảo icon dấu X nằm chính giữa */
+        .btn-delete-page-circle i {
+            margin: 0;
+            position: relative;
+            top: 0px;
+        }
+
+    /* Managed Images Zone */
+    .image-box {
+        width: 120px;
+        height: 165px;
+        cursor: grab;
+        background-color: #fff;
+        border: 2px solid #eee;
+        transition: all 0.2s;
+    }
+
+        .image-box:hover {
+            border-color: #0d6efd;
+            box-shadow: 0 5px 15px rgba(13,110,253,0.2) !important;
+        }
+
+    .manga-img-managed {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
     }
 
-    .accordion-button:not(.collapsed) {
-        background-color: #e7f1ff;
-        color: #0c63e4;
+    /* Page Badge Custom */
+    .page-badge {
+        top: -10px;
+        left: -10px;
+        padding: 5px 10px;
+        font-size: 11px;
+        border: 2px solid white;
+    }
+
+    /* Sortable Ghost Class (Khi đang kéo) */
+    .bg-light.sortable-ghost {
+        opacity: 0.4;
+        border: 2px dashed #0d6efd;
+        background-color: #e7f1ff !important;
     }
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
 <script>
-    // XỬ LÝ KÉO THẢ
+    // 1. KÉO THẢ (Tối ưu Ghost Class)
     document.addEventListener("DOMContentLoaded", function () {
         const sortables = document.querySelectorAll('.sortable-image-list');
         sortables.forEach(list => {
             const chapterId = list.getAttribute('data-chapter-id');
             new Sortable(list, {
-                animation: 150,
-                ghostClass: 'bg-light',
+                animation: 200, // Tăng độ mượt
+                ghostClass: 'sortable-ghost', // Lớp CSS khi đang kéo
                 onEnd: function () {
                     let newOrderIds = [];
                     const itemEls = list.querySelectorAll('.image-box');
@@ -165,7 +323,6 @@
                         newOrderIds.push(parseInt(el.getAttribute('data-id')));
                         el.querySelector('.page-badge').innerText = index + 1;
                     });
-                    // Gọi API UpdateImageOrder của bạn ở đây
                     fetch(`/Chapters/UpdateImageOrder?chapterId=${chapterId}`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
@@ -176,31 +333,95 @@
         });
     });
 
-    // XÓA 1 TRANG ẢNH
+    // 2. XÓA 1 TRANG
     function deleteImage(imageId, btn) {
-        if (!confirm("Xóa trang này?")) return;
+        if (!confirm("Bạn có chắc chắn muốn xóa trang này không? Số trang các trang sau sẽ tự động cập nhật.")) return;
+
+        // Hiệu ứng mờ dần trước khi xóa
+        const box = btn.closest('.image-box');
+        box.style.opacity = '0.5';
+
         fetch(`/Chapters/DeleteImage?imageId=${imageId}`, { method: 'POST' })
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
-                    const box = btn.closest('.image-box');
                     const list = box.parentNode;
                     box.remove();
+                    // Cập nhật lại số badge ngay lập tức
                     list.querySelectorAll('.image-box').forEach((el, i) => el.querySelector('.page-badge').innerText = i + 1);
+                } else {
+                    box.style.opacity = '1';
+                    alert(data.message);
                 }
+            })
+            .catch(() => {
+                box.style.opacity = '1';
+                alert("Lỗi kết nối server.");
             });
     }
 
+    // 3. XÓA CHƯƠNG
     function deleteEntireChapter(chapterId, btn) {
-        if (!confirm("CẢNH BÁO: Bạn sẽ xóa vĩnh viễn chương này khỏi Database!")) return;
+        if (!confirm("CẢNH BÁO KHẨN CẤP:\n\nBạn sẽ xóa vĩnh viễn chương này và TOÀN BỘ ảnh bên trong khỏi Database!\n\nHành động này không thể hoàn tác. Bạn chắc chắn chứ?")) return;
+
         fetch(`/Chapters/DeleteEntireChapter?chapterId=${chapterId}`, { method: 'POST' })
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
-                    btn.closest('.accordion-item').remove();
+                    // Hiệu ứng thu nhỏ và biến mất
+                    const item = btn.closest('.accordion-item');
+                    item.style.transition = 'all 0.3s ease';
+                    item.style.transform = 'scale(0.8)';
+                    item.style.opacity = '0';
+                    setTimeout(() => item.remove(), 300);
                 } else {
                     alert(data.message);
                 }
             });
+    }
+
+    // 4. CHỨC NĂNG THÊM TRANG MỚI (Giữ nguyên logic)
+    function triggerAddPages(chapterId) {
+        document.getElementById('activeChapterIdForUpload').value = chapterId;
+        document.getElementById('hiddenAddPagesInput').click();
+    }
+
+    function uploadNewPages(input) {
+        if (!input.files || input.files.length === 0) return;
+
+        const chapterId = document.getElementById('activeChapterIdForUpload').value;
+        const formData = new FormData();
+        formData.append('chapterId', chapterId);
+
+        for (let i = 0; i < input.files.length; i++) {
+            formData.append('pages', input.files[i]);
+        }
+
+        // Hiện loading nhẹ
+        document.body.style.cursor = 'wait';
+        const btnSuccess = document.querySelector(`[onclick="triggerAddPages(${chapterId})"]`);
+        const originalHtml = btnSuccess.innerHTML;
+        btnSuccess.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Đang up...';
+        btnSuccess.disabled = true;
+
+        fetch('/Chapters/AddExtraPages', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                alert("Đã thêm trang mới thành công! Hệ thống sẽ tải lại để hiển thị.");
+                location.reload();
+            } else {
+                alert(data.message || "Lỗi khi upload trang mới!");
+                btnSuccess.innerHTML = originalHtml;
+                btnSuccess.disabled = false;
+            }
+        })
+        .finally(() => {
+            document.body.style.cursor = 'default';
+            input.value = '';
+        });
     }
 </script>

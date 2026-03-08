@@ -10,66 +10,148 @@
 }
 
 <div class="account-container">
-    <div class="account-box">
-        <div class="text-center mb-4">
-            <h2 class="fw-bold text-dark text-uppercase">@Localizer["PageTitle"]</h2>
-            <p class="text-muted small">@Localizer["Desc"]</p>
+
+    <div class="container">
+        <div class="row justify-content-center align-items-center gap-4">
+
+            <div class="col-md-6 col-lg-5">
+                <div class="account-box w-100 shadow-lg p-5 bg-white rounded-4">
+                    <div class="text-center mb-4">
+                        <h2 class="fw-bold text-dark text-uppercase">@Localizer["PageTitle"]</h2>
+                        <p class="text-muted small">@Localizer["Desc"]</p>
+                    </div>
+
+                    <form asp-action="Login" method="post">
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label fw-bold text-dark">
+                                @Localizer["Label_Email"]
+                            </label>
+                            <div class="input-group input-group-solid border rounded-3 overflow-hidden">
+                                <span class="input-group-text bg-white border-0">
+                                    <i class="fas fa-envelope text-primary"></i>
+                                </span>
+                                <input asp-for="Email" class="form-control bg-white text-dark border-0 shadow-none py-2"
+                                       placeholder="@Localizer["Placeholder_Email"]" id="loginEmail" />
+                            </div>
+                            <span asp-validation-for="Email" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label fw-bold text-dark">
+                                @Localizer["Label_Password"]
+                            </label>
+                            <div class="input-group input-group-solid border rounded-3 overflow-hidden">
+                                <span class="input-group-text bg-white border-0">
+                                    <i class="fas fa-lock text-primary"></i>
+                                </span>
+                                <input asp-for="Password" type="password" class="form-control bg-white text-dark border-0 shadow-none py-2"
+                                       placeholder="@Localizer["Placeholder_Password"]" id="loginPassword" />
+                            </div>
+                            <span asp-validation-for="Password" class="text-danger small"></span>
+                        </div>
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div class="form-check">
+                                <input asp-for="RememberMe" class="form-check-input border-dark" />
+                                <label class="form-check-label text-dark small" asp-for="RememberMe">
+                                    @Localizer["Label_RememberMe"]
+                                </label>
+                            </div>
+                            <a asp-controller="Account" asp-action="VerifyEmail" class="text-decoration-none small fw-bold">
+                                @Localizer["Link_ForgotPassword"]
+                            </a>
+                        </div>
+
+                        <div class="d-grid mb-3">
+                            <input type="submit" value="@Localizer["Button_Login"]" class="btn btn-primary fw-bold shadow border-0 py-2 btn-lg rounded-3" />
+                        </div>
+
+                        <p class="text-center mt-3 mb-0 text-dark small">
+                            @Localizer["Text_NoAccount"]
+                            <a asp-controller="Account" asp-action="Register" class="text-decoration-none fw-bold">
+                                @Localizer["Link_RegisterNow"]
+                            </a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-5 col-lg-4">
+                <div class="account-box w-100 shadow-lg p-5 rounded-4" style="background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border: 2px dashed #0d6efd;">
+                    <div class="text-center mb-4">
+                        <h4 class="fw-bold text-dark mb-1"><i class="fas fa-id-card me-2 text-primary"></i>@Localizer["Text_Account_Admin"]</h4>
+                        <p class="text-muted small">@Localizer["For_Employer"]</p>
+                    </div>
+
+                    <div class="d-grid gap-3 mb-4">
+                        <button type="button" class="btn btn-outline-danger fw-bold py-2 rounded-3 hover-lift" onclick="fillDemoAccount('admin')">
+                            <i class="fas fa-user-shield me-2"></i>Admin
+                        </button>
+                        <button type="button" class="btn btn-outline-success fw-bold py-2 rounded-3 hover-lift" onclick="fillDemoAccount('user')">
+                            <i class="fas fa-user me-2"></i>User
+                        </button>
+                    </div>
+
+                    <div id="demoInfoBox" class="alert d-none border-0 shadow-sm rounded-3">
+                        <p class="mb-1 small text-dark"><strong>Email:</strong></p>
+                        <p id="showEmail" class="fw-bold mb-2 text-break text-dark"></p>
+
+                        <p class="mb-1 small text-dark"><strong>@Localizer["Label_Password"]:</strong></p>
+                        <p id="showPass" class="fw-bold mb-0 text-break text-dark"></p>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <small class="text-secondary fst-italic"><i class="fas fa-info-circle me-1"></i>@Localizer["Button_Automatic"]</small>
+                    </div>
+                </div>
+            </div>
+
         </div>
-
-        <form asp-action="Login" method="post">            
-
-            <div class="mb-3">
-                <label asp-for="Email" class="form-label fw-bold text-dark">
-                    @Localizer["Label_Email"]
-                </label>
-                <div class="input-group input-group-solid">
-                    <span class="input-group-text bg-white border-0">
-                        <i class="fas fa-envelope text-primary"></i>
-                    </span>
-                    <input asp-for="Email" class="form-control bg-white text-dark border-0 shadow-none"
-                           placeholder="@Localizer["Placeholder_Email"]" />
-                </div>
-                <span asp-validation-for="Email" class="text-danger small"></span>
-            </div>
-
-            <div class="mb-3">
-                <label asp-for="Password" class="form-label fw-bold text-dark">
-                    @Localizer["Label_Password"]
-                </label>
-                <div class="input-group input-group-solid">
-                    <span class="input-group-text bg-white border-0">
-                        <i class="fas fa-lock text-primary"></i>
-                    </span>
-                    <input asp-for="Password" type="password" class="form-control bg-white text-dark border-0 shadow-none"
-                           placeholder="@Localizer["Placeholder_Password"]" />
-                </div>
-                <span asp-validation-for="Password" class="text-danger small"></span>
-            </div>
-
-            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
-
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <div class="form-check">
-                    <input asp-for="RememberMe" class="form-check-input border-dark" />
-                    <label class="form-check-label text-dark small" asp-for="RememberMe">
-                        @Localizer["Label_RememberMe"]
-                    </label>
-                </div>
-                <a asp-controller="Account" asp-action="VerifyEmail" class="text-decoration-none small fw-bold">
-                    @Localizer["Link_ForgotPassword"]
-                </a>
-            </div>
-            
-            <div class="d-grid mb-3">
-                <input type="submit" value="@Localizer["Button_Login"]" class="btn btn-primary fw-bold shadow border-dark btn-lg" />
-            </div>
-
-            <p class="text-center mt-3 mb-0 text-dark small">
-                @Localizer["Text_NoAccount"]
-                <a asp-controller="Account" asp-action="Register" class="text-decoration-none fw-bold">
-                    @Localizer["Link_RegisterNow"]
-                </a>
-            </p>
-        </form>
     </div>
 </div>
+
+<style>
+    .hover-lift {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+        .hover-lift:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+        }
+</style>
+
+<script>
+    function fillDemoAccount(role) {
+        const emailInput = document.getElementById('loginEmail');
+        const passInput = document.getElementById('loginPassword');
+        const demoBox = document.getElementById('demoInfoBox');
+        const showEmail = document.getElementById('showEmail');
+        const showPass = document.getElementById('showPass');
+
+        if (role === 'admin') {
+            emailInput.value = 'admin@mylibrary.com';
+            passInput.value = 'Admin@123';
+            showEmail.innerText = 'admin@mylibrary.com';
+            showPass.innerText = 'Admin@123';
+            demoBox.className = 'alert alert-danger border-0 shadow-sm rounded-3 mt-4';
+        } else {
+            emailInput.value = 'user@mylibrary.com';
+            passInput.value = 'User@123';
+            showEmail.innerText = 'user@mylibrary.com';
+            showPass.innerText = 'User@123';
+            demoBox.className = 'alert alert-success border-0 shadow-sm rounded-3 mt-4';
+        }
+
+        demoBox.classList.remove('d-none');
+
+        emailInput.style.backgroundColor = "#e8f0fe";
+        passInput.style.backgroundColor = "#e8f0fe";
+        setTimeout(() => {
+            emailInput.style.backgroundColor = "white";
+            passInput.style.backgroundColor = "white";
+        }, 500);
+    }
+</script>

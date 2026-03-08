@@ -124,7 +124,7 @@
     <value>Đọc Ngay</value>
   </data>
   <data name="Hero_Desc" xml:space="preserve">
-    <value>Khám phá, đọc và mở rộng kiến thức với kho sách khổng lồ của chúng tôi.</value>
+    <value>Khám phá, đọc và mở rộng kiến thức với kho truyện tranh khổng lồ của chúng tôi.</value>
   </data>
   <data name="Hero_Title" xml:space="preserve">
     <value>Chào mừng đến với Thư viện Truyện Tranh</value>
@@ -132,8 +132,8 @@
   <data name="Label_Author" xml:space="preserve">
     <value>Tác giả:</value>
   </data>
-  <data name="Label_Year" xml:space="preserve">
-    <value>Năm Xuất Bản:</value>
+  <data name="Label_Published" xml:space="preserve">
+    <value>Xuất bản:</value>
   </data>
   <data name="Link_SeeAll" xml:space="preserve">
     <value>Xem tất cả</value>
@@ -155,5 +155,9 @@
   </data>
   <data name="Section_Trending" xml:space="preserve">
     <value>Sách đang hot</value>
+  </data>
+  <data name="Alt_CoverOf" xml:space="preserve">
+    <value>Ảnh bìa của</value>
+    <comment>Ảnh bìa của</comment>
   </data>
 </root>

@@ -50,20 +50,16 @@ namespace MyWeb.Controllers
 
                 if (result.Succeeded)
                 {
-                    // 1. Tìm đối tượng User dựa trên Email
                     var user = await _userManager.FindByEmailAsync(model.Email);
 
                     if (user != null)
                     {
-                        // 2. Kiểm tra nếu User có quyền "Admin"
                         if (await _userManager.IsInRoleAsync(user, "Admin"))
                         {
-                            // Chuyển hướng đến trang quản lý sách cho Admin
                             return RedirectToAction("Index", "Books");
                         }
                     }
 
-                    // 3. Mặc định (User thường hoặc không có Role đặc biệt) về trang chủ
                     return RedirectToAction("Index", "Home");
                 }
                 else

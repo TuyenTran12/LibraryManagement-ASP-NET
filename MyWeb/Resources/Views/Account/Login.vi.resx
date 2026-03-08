@@ -117,11 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Button_Automatic" xml:space="preserve">
+    <value>Click nút để tự động điền form.</value>
+  </data>
   <data name="Button_Login" xml:space="preserve">
     <value>Đăng nhập</value>
   </data>
   <data name="Desc" xml:space="preserve">
     <value>Chào mừng bạn quay trở lại!</value>
+  </data>
+  <data name="For_Employer" xml:space="preserve">
+    <value>Dành cho Nhà tuyển dụng</value>
+    <comment>Dành cho Nhà tuyển dụng</comment>
   </data>
   <data name="Label_Email" xml:space="preserve">
     <value>Địa chỉ Email</value>
@@ -146,6 +153,9 @@
   </data>
   <data name="Placeholder_Password" xml:space="preserve">
     <value>******</value>
+  </data>
+  <data name="Text_Account_Admin" xml:space="preserve">
+    <value>Tài khoản Demo</value>
   </data>
   <data name="Text_NoAccount" xml:space="preserve">
     <value>Chưa có tài khoản?</value>

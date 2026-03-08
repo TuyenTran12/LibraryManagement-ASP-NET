@@ -1,7 +1,9 @@
 ﻿@model IEnumerable<MyWeb.Models.Book>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = "Quản lý Manga - System Update";
+    ViewData["Title"] = Localizer["PageTitle_MangaManagement"];
 }
 
 <div class="container-fluid px-4 py-5" style="background-color: #f4f7f6; min-height: 100vh;">
@@ -9,12 +11,12 @@
     <div class="d-flex justify-content-between align-items-center mb-5 p-4 bg-white rounded-3 shadow-sm border-0">
         <div>
             <h1 class="h3 mb-1 fw-bold text-dark">
-                <i class="fas fa-layer-group me-2 text-primary"></i>Hệ thống Quản lý Manga
+                <i class="fas fa-layer-group me-2 text-primary"></i>@Localizer["Header_MangaManagement"]
             </h1>
-            <p class="text-muted mb-0 small">Tổng số: <strong>@Model.Count()</strong> tác phẩm</p>
+            <p class="text-muted mb-0 small">@Localizer["Text_TotalCount"] <strong>@Model.Count()</strong> @Localizer["Text_Works"]</p>
         </div>
         <a asp-action="Create" class="btn btn-primary btn-lg px-4 fw-bold shadow-sm">
-            <i class="fas fa-plus-circle me-2"></i>Thêm Truyện Mới
+            <i class="fas fa-plus-circle me-2"></i>@Localizer["Button_AddNewManga"]
         </a>
     </div>
 
@@ -25,11 +27,11 @@
 
                     <thead class="bg-light border-bottom border-light">
                         <tr class="text-secondary small fw-bold text-uppercase">
-                            <th class="ps-4 py-3" style="width: 100px;">Ảnh Bìa</th>
-                            <th class="py-3">Thông tin tác phẩm</th>
-                            <th class="py-3">Tác Giả</th>
-                            <th class="py-3">Phân loại</th>
-                            <th class="pe-4 py-3 text-end" style="width: 250px;">Thao tác nhanh</th>
+                            <th class="ps-4 py-3" style="width: 100px;">@Localizer["Header_Cover"]</th>
+                            <th class="py-3">@Localizer["Header_WorkInfo"]</th>
+                            <th class="py-3">@Localizer["Header_Author"]</th>
+                            <th class="py-3">@Localizer["Header_Category"]</th>
+                            <th class="pe-4 py-3 text-end" style="width: 250px;">@Localizer["Header_Action"]</th>
                         </tr>
                     </thead>
 
@@ -46,8 +48,8 @@
                                                  alt="Cover" class="rounded border shadow-sm manga-cover-img" />
                                             @if (item.YearPublished > DateTime.Now.Year - 1)
                                             {
-                                                <span class="badge bg-success position-absolute top-0 start-0 translate-middle p-1 rounded-circle" title="Mới">
-                                                    <span class="visually-hidden">New</span>
+                                                <span class="badge bg-success position-absolute top-0 start-0 translate-middle p-1 rounded-circle" title="@Localizer["Badge_New"]">
+                                                    <span class="visually-hidden">@Localizer["Badge_New"]</span>
                                                 </span>
                                             }
                                         </div>
@@ -56,7 +58,7 @@
                                     <td class="py-3">
                                         <div class="fw-bold text-dark fs-5 mb-0">@item.Title</div>
                                         <div class="text-muted small">
-                                            <i class="fas fa-calendar-alt me-1"></i>Xuất bản: @item.YearPublished
+                                            <i class="fas fa-calendar-alt me-1"></i>@Localizer["Text_Published"] @item.YearPublished
                                         </div>
                                     </td>
 
@@ -75,19 +77,19 @@
                                         }
                                         else
                                         {
-                                            <span class="text-muted small fst-italic">Chưa phân loại</span>
+                                            <span class="text-muted small fst-italic">@Localizer["Text_Uncategorized"]</span>
                                         }
                                     </td>
 
                                     <td class="pe-4 py-3 text-end action-col">
                                         <div class="btn-group shadow-sm border rounded-pill overflow-hidden bg-white" role="group">
-                                            <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-outline-warning btn-sm border-0 px-3 py-2" title="Sửa thông tin">
+                                            <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-outline-warning btn-sm border-0 px-3 py-2" title="@Localizer["Tooltip_Edit"]">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <a asp-controller="Chapters" asp-action="UploadChapter" asp-route-bookId="@item.Id" class="btn btn-outline-primary btn-sm border-0 px-3 py-2" title="Đăng chapter mới">
+                                            <a asp-controller="Chapters" asp-action="UploadChapter" asp-route-bookId="@item.Id" class="btn btn-outline-primary btn-sm border-0 px-3 py-2" title="@Localizer["Tooltip_AddChapter"]">
                                                 <i class="fas fa-plus"></i>
                                             </a>
-                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm border-0 px-3 py-2" title="Xóa tác phẩm">
+                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm border-0 px-3 py-2" title="@Localizer["Tooltip_Delete"]">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -102,10 +104,10 @@
                                     <div class="mb-3 fs-1 text-primary opacity-25">
                                         <i class="fas fa-book-open"></i>
                                     </div>
-                                    <h5 class="text-dark">Chưa có cuốn truyện nào</h5>
-                                    <p class="mb-3 small">Hãy thêm tác phẩm đầu tiên để hệ thống hoạt động!</p>
+                                    <h5 class="text-dark">@Localizer["Empty_NoBooks"]</h5>
+                                    <p class="mb-3 small">@Localizer["Empty_AddFirstBook"]</p>
                                     <a asp-action="Create" class="btn btn-primary btn-sm">
-                                        <i class="fas fa-plus me-1"></i>Thêm truyện ngay
+                                        <i class="fas fa-plus me-1"></i>@Localizer["Button_AddNow"]
                                     </a>
                                 </td>
                             </tr>

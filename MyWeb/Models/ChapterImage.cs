@@ -9,12 +9,11 @@ namespace MyWeb.Models
         public int Id { get; set; }
 
         [Required]
-        public string? ImageUrl { get; set; } // Sẽ chứa link ảnh từ Cloudinary
+        public string? ImageUrl { get; set; } 
 
         [Required]
-        public int PageNumber { get; set; } // Số thứ tự trang (1, 2, 3...) để sắp xếp ảnh cho đúng
+        public int PageNumber { get; set; } 
 
-        // Khóa ngoại nối về Chapter
         [Required]
         public int ChapterId { get; set; }
 

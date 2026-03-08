@@ -58,7 +58,7 @@
                                 <div class="card h-100 border-0 shadow-sm book-card bg-white">
 
                                     <div class="position-relative overflow-hidden" style="height: 320px; border-radius: 12px 12px 0 0;">
-                                        <img src="@coverUrl" class="card-img-top w-100 h-100" style="object-fit: cover;" alt="Cover of @book.Title">
+                                        <img src="@coverUrl" class="card-img-top w-100 h-100" style="object-fit: cover;" alt="@Localizer["Alt_CoverOf"] @book.Title">
                                     </div>
 
                                     <div class="card-body d-flex flex-column p-3">
@@ -76,7 +76,7 @@
 
                                         <p class="card-text text-muted small mb-4">
                                             <i class="fas fa-calendar-alt me-2 text-primary"></i>
-                                            <strong>@Localizer["Label_Year"]</strong> @book.YearPublished
+                                            <strong>@Localizer["Label_Published"]</strong> @book.YearPublished
                                         </p>
 
                                         <div class="mt-auto d-flex justify-content-between gap-2">

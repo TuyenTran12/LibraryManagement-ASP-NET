@@ -117,17 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="App_Name" xml:space="preserve">
-    <value>Quản Lý Thư Viện</value>
+  <data name="Badge_New" xml:space="preserve">
+    <value>Mới</value>
   </data>
-  <data name="Button_AddNew" xml:space="preserve">
-    <value>Thêm sách mới</value>
+  <data name="Button_AddNewManga" xml:space="preserve">
+    <value>Thêm Truyện Mới</value>
   </data>
-  <data name="Confirm_Delete" xml:space="preserve">
-    <value>Bạn có chắc chắn muốn xóa?</value>
+  <data name="Button_AddNow" xml:space="preserve">
+    <value>Thêm truyện ngay</value>
   </data>
-  <data name="Desc_BookList" xml:space="preserve">
-    <value>Danh sách các đầu sách hiện có</value>
+  <data name="Empty_AddFirstBook" xml:space="preserve">
+    <value>Hãy thêm tác phẩm đầu tiên để hệ thống hoạt động!</value>
+  </data>
+  <data name="Empty_NoBooks" xml:space="preserve">
+    <value>Chưa có cuốn truyện nào</value>
   </data>
   <data name="Header_Action" xml:space="preserve">
     <value>Thao tác</value>
@@ -138,20 +141,32 @@
   <data name="Header_Category" xml:space="preserve">
     <value>Thể loại</value>
   </data>
-  <data name="Header_ID" xml:space="preserve">
-    <value>ID</value>
+  <data name="Header_Cover" xml:space="preserve">
+    <value>Ảnh Bìa</value>
   </data>
-  <data name="Header_Title" xml:space="preserve">
-    <value>Tiêu đề</value>
+  <data name="Header_MangaManagement" xml:space="preserve">
+    <value>Hệ thống Quản lý Manga</value>
   </data>
-  <data name="Header_Year" xml:space="preserve">
-    <value>Nãm xuất bản</value>
+  <data name="Header_WorkInfo" xml:space="preserve">
+    <value>Thông tin tác phẩm</value>
   </data>
-  <data name="Name (Key)" xml:space="preserve">
-    <value>Value (vi-VN)</value>
+  <data name="PageTitle_MangaManagement" xml:space="preserve">
+    <value>Quản lý Manga</value>
   </data>
-  <data name="PageTitle_BookList" xml:space="preserve">
-    <value>Danh sách sách</value>
+  <data name="Text_Published" xml:space="preserve">
+    <value>Xuất bản:</value>
+  </data>
+  <data name="Text_TotalCount" xml:space="preserve">
+    <value>Tổng số:</value>
+  </data>
+  <data name="Text_Uncategorized" xml:space="preserve">
+    <value>Chưa phân loại</value>
+  </data>
+  <data name="Text_Works" xml:space="preserve">
+    <value>tác phẩm</value>
+  </data>
+  <data name="Tooltip_AddChapter" xml:space="preserve">
+    <value>Đăng chapter mới</value>
   </data>
   <data name="Tooltip_Delete" xml:space="preserve">
     <value>Xóa</value>

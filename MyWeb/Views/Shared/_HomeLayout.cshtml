@@ -11,21 +11,37 @@
 </head>
 <body class="dark-theme">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-glass border-bottom border-secondary sticky-top mb-3">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-glass border-bottom border-secondary sticky-top mb-3 py-2">
             <div class="container">
                 <a class="navbar-brand fw-bold" asp-controller="Home" asp-action="Index">
                     <i class="fas fa-book-reader me-2 text-primary"></i>MangaLibrary
                 </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                <button class="navbar-toggler shadow-none border-secondary" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="navbar-collapse collapse d-sm-inline-flex">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+
+                    <form class="d-flex flex-grow-1 mx-md-4 my-3 my-sm-0 search-form" asp-controller="Home" asp-action="Search" method="get">
+                        <div class="input-group">
+                            <input class="form-control bg-dark text-light border-secondary shadow-none search-input"
+                                   type="search"
+                                   name="query"
+                                   placeholder="Tìm kiếm truyện, tác giả..."
+                                   aria-label="Search"
+                                   autocomplete="off">
+                            <button class="btn btn-primary px-4 shadow-none" type="submit" title="Tìm kiếm">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+
                     <div class="d-flex align-items-center gap-3 ms-auto">
                         <partial name="_SelectLanguagePartial" />
                         <partial name="_LogionPartial" />
                     </div>
+
                 </div>
             </div>
         </nav>
@@ -37,9 +53,9 @@
         </main>
     </div>
 
-    <footer class="footer text-secondary bg-black border-top border-secondary">
+    <footer class="footer text-secondary bg-black border-top border-secondary mt-auto">
         <div class="container py-3 text-center">
-            <small>&copy; 2026 - <span class="text-primary fw-bold">MyWeb</span> Application</small>
+            <small>&copy; 2026 - <span class="text-primary fw-bold">MangaLibrary</span></small>
         </div>
     </footer>
 
@@ -48,5 +64,21 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
+
+    <style>
+        .search-form {
+            max-width: 500px; /* Giới hạn chiều dài trên màn hình to */
+        }
+
+        .search-input::placeholder {
+            color: #888;
+        }
+
+        .search-input:focus {
+            background-color: #222 !important;
+            border-color: #0d6efd !important;
+            color: white !important;
+        }
+    </style>
 </body>
 </html>

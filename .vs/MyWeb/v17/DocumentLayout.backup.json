@@ -5,6 +5,54 @@
     {
       "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\services\\photoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\services\\photoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\services\\iphotoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\services\\iphotoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\repositories\\bookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\repositories\\bookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\repositories\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\repositories\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\repositories\\ibookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\repositories\\ibookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\repositories\\ichapterrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\repositories\\ichapterrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\models\\chapterimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\models\\chapterimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\models\\chapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\models\\chapter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|d:\\documents\\web\\librarymanagement-asp-net\\myweb\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{812500BA-8010-4B7D-B949-C916F53664CD}|MyWeb\\MyWeb.csproj|solutionrelative:myweb\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,9 +72,165 @@
               "RelativeDocumentMoniker": "MyWeb\\appsettings.json",
               "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\appsettings.json",
               "RelativeToolTip": "MyWeb\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-03T11:00:12.291Z",
+              "WhenOpened": "2026-03-08T11:34:49.869Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Program.cs",
+              "RelativeDocumentMoniker": "MyWeb\\Program.cs",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Program.cs",
+              "RelativeToolTip": "MyWeb\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-08T11:34:46.563Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PhotoService.cs",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Services\\PhotoService.cs",
+              "RelativeDocumentMoniker": "MyWeb\\Services\\PhotoService.cs",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Services\\PhotoService.cs",
+              "RelativeToolTip": "MyWeb\\Services\\PhotoService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-08T11:34:10.992Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IPhotoService.cs",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Services\\IPhotoService.cs",
+              "RelativeDocumentMoniker": "MyWeb\\Services\\IPhotoService.cs",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Services\\IPhotoService.cs",
+              "RelativeToolTip": "MyWeb\\Services\\IPhotoService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-08T11:34:10.026Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BookRepository.cs",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Repositories\\BookRepository.cs",
+              "RelativeDocumentMoniker": "MyWeb\\Repositories\\BookRepository.cs",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Repositories\\BookRepository.cs",
+              "RelativeToolTip": "MyWeb\\Repositories\\BookRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-08T11:34:04.673Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IAccountRepository.cs",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Repositories\\IAccountRepository.cs",
+              "RelativeDocumentMoniker": "MyWeb\\Repositories\\IAccountRepository.cs",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Repositories\\IAccountRepository.cs",
+              "RelativeToolTip": "MyWeb\\Repositories\\IAccountRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-08T11:34:03.579Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IBookRepository.cs",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Repositories\\IBookRepository.cs",
+              "RelativeDocumentMoniker": "MyWeb\\Repositories\\IBookRepository.cs",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Repositories\\IBookRepository.cs",
+              "RelativeToolTip": "MyWeb\\Repositories\\IBookRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-08T11:33:52.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IChapterRepository.cs",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Repositories\\IChapterRepository.cs",
+              "RelativeDocumentMoniker": "MyWeb\\Repositories\\IChapterRepository.cs",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Repositories\\IChapterRepository.cs",
+              "RelativeToolTip": "MyWeb\\Repositories\\IChapterRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-08T11:33:51.076Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Book.cs",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Models\\Book.cs",
+              "RelativeDocumentMoniker": "MyWeb\\Models\\Book.cs",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Models\\Book.cs",
+              "RelativeToolTip": "MyWeb\\Models\\Book.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-08T11:33:45.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Category.cs",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "MyWeb\\Models\\Category.cs",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Models\\Category.cs",
+              "RelativeToolTip": "MyWeb\\Models\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-08T11:33:44.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Chapter.cs",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Models\\Chapter.cs",
+              "RelativeDocumentMoniker": "MyWeb\\Models\\Chapter.cs",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Models\\Chapter.cs",
+              "RelativeToolTip": "MyWeb\\Models\\Chapter.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA3wBcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-08T11:33:29.829Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ChapterImage.cs",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Models\\ChapterImage.cs",
+              "RelativeDocumentMoniker": "MyWeb\\Models\\ChapterImage.cs",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Models\\ChapterImage.cs",
+              "RelativeToolTip": "MyWeb\\Models\\ChapterImage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-08T11:33:20.88Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Users.cs",
+              "DocumentMoniker": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Models\\Users.cs",
+              "RelativeDocumentMoniker": "MyWeb\\Models\\Users.cs",
+              "ToolTip": "D:\\Documents\\Web\\LibraryManagement-ASP-NET\\MyWeb\\Models\\Users.cs",
+              "RelativeToolTip": "MyWeb\\Models\\Users.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-08T11:33:19.552Z",
               "EditorCaption": ""
             }
           ]

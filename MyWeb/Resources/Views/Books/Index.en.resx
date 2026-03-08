@@ -117,17 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="App_Name" xml:space="preserve">
-    <value>Library Management</value>
+  <data name="Badge_New" xml:space="preserve">
+    <value>New</value>
   </data>
-  <data name="Button_AddNew" xml:space="preserve">
-    <value>Add New Book</value>
+  <data name="Button_AddNewManga" xml:space="preserve">
+    <value>Add New Manga</value>
   </data>
-  <data name="Confirm_Delete" xml:space="preserve">
-    <value>Are you sure you want to delete?</value>
+  <data name="Button_AddNow" xml:space="preserve">
+    <value>Add manga now</value>
   </data>
-  <data name="Desc_BookList" xml:space="preserve">
-    <value>List of available books</value>
+  <data name="Empty_AddFirstBook" xml:space="preserve">
+    <value>Add the first work to get the system running!</value>
+  </data>
+  <data name="Empty_NoBooks" xml:space="preserve">
+    <value>No manga available yet</value>
   </data>
   <data name="Header_Action" xml:space="preserve">
     <value>Actions</value>
@@ -138,20 +141,32 @@
   <data name="Header_Category" xml:space="preserve">
     <value>Category</value>
   </data>
-  <data name="Header_ID" xml:space="preserve">
-    <value>ID</value>
+  <data name="Header_Cover" xml:space="preserve">
+    <value>Cover</value>
   </data>
-  <data name="Header_Title" xml:space="preserve">
-    <value>Title</value>
+  <data name="Header_MangaManagement" xml:space="preserve">
+    <value>Manga Management System</value>
   </data>
-  <data name="Header_Year" xml:space="preserve">
-    <value>Year</value>
+  <data name="Header_WorkInfo" xml:space="preserve">
+    <value>Work Information</value>
   </data>
-  <data name="Name (Key)" xml:space="preserve">
-    <value>Value (en-US / Neutral)</value>
+  <data name="PageTitle_MangaManagement" xml:space="preserve">
+    <value>Manga Management </value>
   </data>
-  <data name="PageTitle_BookList" xml:space="preserve">
-    <value>Book List</value>
+  <data name="Text_Published" xml:space="preserve">
+    <value>Published:</value>
+  </data>
+  <data name="Text_TotalCount" xml:space="preserve">
+    <value>Total:</value>
+  </data>
+  <data name="Text_Uncategorized" xml:space="preserve">
+    <value>Uncategorized</value>
+  </data>
+  <data name="Text_Works" xml:space="preserve">
+    <value>works</value>
+  </data>
+  <data name="Tooltip_AddChapter" xml:space="preserve">
+    <value>Add New Chapter</value>
   </data>
   <data name="Tooltip_Delete" xml:space="preserve">
     <value>Delete</value>

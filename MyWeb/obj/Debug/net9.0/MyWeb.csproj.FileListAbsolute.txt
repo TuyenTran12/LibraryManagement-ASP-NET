@@ -502,3 +502,5 @@ D:\Documents\Web\LibraryManagement-ASP-NET\MyWeb\obj\Debug\net9.0\MyWeb.Resource
 D:\Documents\Web\LibraryManagement-ASP-NET\MyWeb\obj\Debug\net9.0\MyWeb.Resources.Views.Home.Index.vi.resources
 D:\Documents\Web\LibraryManagement-ASP-NET\MyWeb\bin\Debug\net9.0\CloudinaryDotNet.dll
 D:\Documents\Web\LibraryManagement-ASP-NET\MyWeb\bin\Debug\net9.0\Newtonsoft.Json.dll
+D:\Documents\Web\LibraryManagement-ASP-NET\MyWeb\obj\Debug\net9.0\MyWeb.Resources.Views.Home.Read.en.resources
+D:\Documents\Web\LibraryManagement-ASP-NET\MyWeb\obj\Debug\net9.0\MyWeb.Resources.Views.Home.Read.vi.resources
