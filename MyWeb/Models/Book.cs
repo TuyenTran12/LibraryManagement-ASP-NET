@@ -9,6 +9,7 @@ namespace MyWeb.Models
         [Required] public string? Title { get; set; }
         [Required] public string? Author { get; set; }
         [Required] public int YearPublished { get; set; }
+        public string? Description { get; set; }
 
         public int? CategoryId { get; set; }
         [ForeignKey("CategoryId")]

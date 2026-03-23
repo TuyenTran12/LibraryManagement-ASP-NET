@@ -1,84 +1,118 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MyWeb</title>
+    <title>@ViewData["Title"] - MangaLibrary</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/MyWeb.styles.css" asp-append-version="true" />
 </head>
-<body class="dark-theme">
+<body class="d-flex flex-column min-vh-100 bg-white">
+
     <header>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-glass border-bottom border-secondary sticky-top mb-3 py-2">
-            <div class="container">
-                <a class="navbar-brand fw-bold" asp-controller="Home" asp-action="Index">
-                    <i class="fas fa-book-reader me-2 text-primary"></i>MangaLibrary
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 border-bottom border-secondary border-opacity-25 sticky-top">
+            <div class="container-fluid px-4 px-md-5">
+
+                <a class="navbar-brand nike-font m-0" asp-controller="Home" asp-action="Index" style="font-size: 1.8rem; letter-spacing: -1px;">
+                    MANGALIBRARY<span class="text-danger">.</span>
                 </a>
 
-                <button class="navbar-toggler shadow-none border-secondary" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                    <i class="fas fa-bars fs-4 text-white"></i>
                 </button>
 
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse d-lg-flex justify-content-between align-items-center mt-3 mt-lg-0">
 
-                    <form class="d-flex flex-grow-1 mx-md-4 my-3 my-sm-0 search-form" asp-controller="Home" asp-action="Search" method="get">
-                        <div class="input-group">
-                            <input class="form-control bg-dark text-light border-secondary shadow-none search-input"
-                                   type="search"
-                                   name="query"
-                                   placeholder="Tìm kiếm truyện, tác giả..."
-                                   aria-label="Search"
-                                   autocomplete="off">
-                            <button class="btn btn-primary px-4 shadow-none" type="submit" title="Tìm kiếm">
-                                <i class="fas fa-search"></i>
+                    <div class="mx-auto w-100 px-lg-5" style="max-width: 600px;">
+                        <form class="d-flex align-items-center border-bottom border-light pb-1" asp-controller="Home" asp-action="Search" method="get">
+                            <button type="submit" class="btn btn-link text-light p-0 text-decoration-none me-2">
+                                <i class="fas fa-search fs-5"></i>
                             </button>
-                        </div>
-                    </form>
+                            <input class="form-control border-0 shadow-none bg-transparent rounded-0 px-2 fw-medium text-white"
+                                   type="search" name="query" placeholder="@Localizer["Nav_SearchPlaceholder"]" autocomplete="off" style="font-size: 1.1rem;">
+                        </form>
+                    </div>
 
-                    <div class="d-flex align-items-center gap-3 ms-auto">
+                    <div class="d-flex align-items-center gap-4 mt-3 mt-lg-0">
                         <partial name="_SelectLanguagePartial" />
                         <partial name="_LogionPartial" />
                     </div>
-
                 </div>
             </div>
         </nav>
     </header>
 
-    <div class="container">
-        <main role="main" class="pb-5">
+    <div class="flex-grow-1">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="footer text-secondary bg-black border-top border-secondary mt-auto">
-        <div class="container py-3 text-center">
-            <small>&copy; 2026 - <span class="text-primary fw-bold">MangaLibrary</span></small>
+    <footer class="bg-dark text-white pt-5 pb-4 mt-auto">
+        <div class="container-fluid px-4 px-md-5">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h2 class="nike-font mb-3" style="font-size: 2.5rem;">MANGALIBRARY<span class="text-danger">.</span></h2>
+                    <p class="text-secondary fw-medium">@Localizer["Footer_Slogan"]</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="d-flex gap-4 justify-content-md-end mb-4">
+                        <a href="#" class="text-white fs-4 hover-opacity"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white fs-4 hover-opacity"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white fs-4 hover-opacity"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <p class="text-secondary small m-0">@(Localizer["Footer_Copyright"])</p>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
     @await RenderSectionAsync("Scripts", required: false)
 
     <style>
-        .search-form {
-            max-width: 500px; /* Giới hạn chiều dài trên màn hình to */
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: #fff;
+            color: #111;
         }
 
-        .search-input::placeholder {
-            color: #888;
+        .nike-font {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
-        .search-input:focus {
-            background-color: #222 !important;
-            border-color: #0d6efd !important;
-            color: white !important;
+        .hover-opacity {
+            transition: opacity 0.2s;
         }
+
+            .hover-opacity:hover {
+                opacity: 0.6;
+            }
+
+        .navbar .text-white, .navbar .text-light {
+            color: #fff !important;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .navbar .btn-outline-light {
+            border: 1px solid #fff !important;
+            border-radius: 50px;
+        }
+
+            .navbar .btn-outline-light:hover {
+                background-color: #fff !important;
+                color: #000 !important;
+            }
     </style>
 </body>
 </html>

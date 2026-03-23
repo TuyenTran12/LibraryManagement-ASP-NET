@@ -124,10 +124,10 @@
     <value>Read Now</value>
   </data>
   <data name="Hero_Desc" xml:space="preserve">
-    <value>Discover, read, and expand your knowledge with our vast collection of mangas.</value>
+    <value>The best manga series are ready. No hesitation, no waiting. Just read it.</value>
   </data>
   <data name="Hero_Title" xml:space="preserve">
-    <value>Welcome to Manga Library</value>
+    <value>OVERCOME ALL LIMITS</value>
   </data>
   <data name="Label_Author" xml:space="preserve">
     <value>Author:</value>
@@ -141,23 +141,14 @@
   <data name="PageTitle" xml:space="preserve">
     <value>Home - Library</value>
   </data>
-  <data name="Section_Classic" xml:space="preserve">
-    <value>Classic Books</value>
-  </data>
-  <data name="Section_Kids" xml:space="preserve">
-    <value>Kids</value>
-  </data>
-  <data name="Section_Love" xml:space="preserve">
-    <value>Books We Love</value>
-  </data>
-  <data name="Section_Romance" xml:space="preserve">
-    <value>Romance</value>
-  </data>
   <data name="Section_Trending" xml:space="preserve">
     <value>Trending Books</value>
   </data>
   <data name="Alt_CoverOf" xml:space="preserve">
     <value>Cover of</value>
     <comment>Ảnh bìa của</comment>
+  </data>
+  <data name="Section_NewUpdated" xml:space="preserve">
+    <value>New Updated</value>
   </data>
 </root>

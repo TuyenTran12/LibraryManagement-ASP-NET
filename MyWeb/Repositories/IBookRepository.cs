@@ -11,5 +11,9 @@ namespace MyWeb.Repositories
         Task AddBookAsync(Book book);
         Task UpdateBookAsync(Book book);
         Task DeleteBookAsync(int id);
+        Task<IEnumerable<Book>> SearchBooksAsync(string keyword);
+        Task<Book?> GetBookWithDetailsAsync(int id);
+        Task<IEnumerable<Book>> GetSimilarBooksAsync(int categoryId, int excludeBookId, int takeCount = 5);
+        Task<IActionResult> ToggleBookmark(string userId, int bookId);
     }
 }

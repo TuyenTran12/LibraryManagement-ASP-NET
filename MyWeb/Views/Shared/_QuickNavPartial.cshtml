@@ -1,0 +1,86 @@
+﻿<div class="container mb-5 fade-in-up" style="animation-delay: 0.1s;">
+    <div class="bg-white rounded-pill shadow-sm border border-secondary border-opacity-25 p-2 d-flex justify-content-center">
+        <ul class="nav nav-pills flex-wrap gap-2 align-items-center justify-content-center">
+
+            <li class="nav-item">
+                <a class="nav-link active bg-primary text-white rounded-pill px-4 py-2 fw-medium d-flex align-items-center shadow-sm" href="/">
+                    <i class="fas fa-fire text-warning me-2"></i> Hot Nhất
+                </a>
+            </li>
+
+            <li class="nav-item dropdown hover-dropdown">
+                <a class="nav-link text-dark hover-bg rounded-pill px-4 py-2 fw-medium d-flex align-items-center dropdown-toggle" href="#" role="button" aria-expanded="false">
+                    <i class="fas fa-th-large text-primary opacity-75 me-2"></i> Thể Loại
+                </a>
+
+                <ul class="dropdown-menu border-0 shadow-lg rounded-4 mt-1 p-2">
+                    @if (ViewBag.AllCategories != null)
+                    {
+                        var categories = ViewBag.AllCategories as IEnumerable<MyWeb.Models.Category>; // Nhớ chỉnh Namespace nếu cần
+
+                        if (categories != null && categories.Any())
+                        {
+                            foreach (var category in categories.OrderBy(c => c.Name))
+                            {
+                                <li>
+                                    <a class="dropdown-item py-2 rounded-2 fw-medium text-secondary hover-primary" href="#">
+                                        @category.Name
+                                    </a>
+                                </li>
+                            }
+                        }
+                        else
+                        {
+                            <li><span class="dropdown-item py-2 text-muted fst-italic">Chưa có thể loại</span></li>
+                        }
+                    }
+                    else
+                    {
+                        <li><span class="dropdown-item py-2 text-muted fst-italic">Đang cập nhật...</span></li>
+                    }
+
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item py-2 rounded-2 fw-bold text-primary hover-primary" href="#">Xem tất cả...</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-dark hover-bg rounded-pill px-4 py-2 fw-medium d-flex align-items-center" href="#">
+                    <i class="fas fa-trophy text-warning opacity-75 me-2"></i> Xếp Hạng
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-dark hover-bg rounded-pill px-4 py-2 fw-medium d-flex align-items-center" href="#">
+                    <i class="fas fa-clock text-success opacity-75 me-2"></i> Mới Cập Nhật
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-dark hover-bg rounded-pill px-4 py-2 fw-medium d-flex align-items-center" href="#">
+                    <i class="fas fa-history text-secondary opacity-75 me-2"></i> Lịch Sử Đọc
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<style>
+    .hover-dropdown:hover .dropdown-menu {
+        display: block;
+        animation: fadeInDropdown 0.2s ease-in-out;
+    }
+
+    @@keyframes fadeInDropdown {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>

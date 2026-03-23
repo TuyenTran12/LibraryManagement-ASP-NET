@@ -24,7 +24,7 @@ namespace MyWeb.Repositories
             return await _context.Chapters
               .Include(c => c.Images)
               .Where(c => c.BookId == bookId)
-              .OrderByDescending(c => c.ChapterNumber) // Bạn đang dùng OrderByDescending
+              .OrderByDescending(c => c.ChapterNumber) 
                       .ToListAsync();
         }
 
@@ -40,7 +40,6 @@ namespace MyWeb.Repositories
             var chapter = await GetChapterWithImagesAsync(id);
             if (chapter != null)
             {
-                // Nếu xóa Chapter, phải xóa ChapterImages (vì Cascade)
                 if (chapter.Images != null && chapter.Images.Any())
                 {
                     _context.ChapterImages.RemoveRange(chapter.Images);

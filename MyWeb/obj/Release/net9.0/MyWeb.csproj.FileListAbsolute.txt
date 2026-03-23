@@ -267,3 +267,7 @@ D:\Documents\Web\LibraryManagement-ASP-NET\MyWeb\obj\Release\net9.0\MyWeb.genrun
 D:\Documents\Web\LibraryManagement-ASP-NET\MyWeb\obj\Release\net9.0\ref\MyWeb.dll
 D:\Documents\Web\LibraryManagement-ASP-NET\MyWeb\obj\Release\net9.0\MyWeb.Resources.Views.Home.Read.en.resources
 D:\Documents\Web\LibraryManagement-ASP-NET\MyWeb\obj\Release\net9.0\MyWeb.Resources.Views.Home.Read.vi.resources
+D:\Documents\Web\LibraryManagement-ASP-NET\MyWeb\obj\Release\net9.0\MyWeb.Resources.Views.Shared._HomeLayout.en.resources
+D:\Documents\Web\LibraryManagement-ASP-NET\MyWeb\obj\Release\net9.0\MyWeb.Resources.Views.Shared._HomeLayout.vi.resources
+D:\Documents\Web\LibraryManagement-ASP-NET\MyWeb\obj\Release\net9.0\MyWeb.Resources.Views.Shared._LogionPartial.en.resources
+D:\Documents\Web\LibraryManagement-ASP-NET\MyWeb\obj\Release\net9.0\MyWeb.Resources.Views.Shared._LogionPartial.vi.resources

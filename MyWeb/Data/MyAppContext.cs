@@ -26,5 +26,6 @@ namespace MyWeb.Data
         public DbSet<Users> Accounts { get; set; }
         public DbSet<Chapter> Chapters { get; set; }
         public DbSet<ChapterImage> ChapterImages { get; set; }
+        public DbSet<UserBookLibrary> UserBookLibraries { get; set; }
     }
 }

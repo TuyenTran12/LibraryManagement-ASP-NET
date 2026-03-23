@@ -1,0 +1,187 @@
+﻿@model MyWeb.Models.Book
+
+@{
+    ViewData["Title"] = Model.Title;
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+
+    // Xử lý tìm ID của Chương Đầu Tiên (Dựa vào ChapterNumber nhỏ nhất)
+    int? firstChapterId = null;
+    if (Model.Chapters != null && Model.Chapters.Any())
+    {
+        firstChapterId = Model.Chapters.OrderBy(c => c.ChapterNumber).First().Id;
+    }
+}
+
+<div class="container-fluid px-4 px-md-5 py-5">
+    <div class="row gx-lg-5">
+
+        <div class="col-md-5 col-lg-4 mb-5 mb-md-0 fade-in-up">
+            <div class="bg-light p-3 p-md-4" style="border: 1px solid #eee;">
+                <img src="@(string.IsNullOrEmpty(Model.CoverImageUrl) ? "https://via.placeholder.com/400x600" : Model.CoverImageUrl)"
+                     class="w-100 h-auto object-fit-cover shadow-sm" alt="@Model.Title">
+            </div>
+        </div>
+
+        <div class="col-md-7 col-lg-8 fade-in-up" style="animation-delay: 0.1s;">
+
+            <div class="mb-2 fw-bold text-secondary text-uppercase" style="letter-spacing: 1px;">
+                @(Model.Category?.Name ?? "MANGA")
+            </div>
+
+            <h1 class="nike-font text-dark mb-3" style="font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; letter-spacing: -1.5px;">
+                @Model.Title
+            </h1>
+
+            <div class="fs-5 fw-medium text-dark mb-4">
+                Tác giả: <span class="text-secondary">@Model.Author</span> | Năm: <span class="text-secondary">@Model.YearPublished</span>
+            </div>
+
+            <div class="d-flex flex-wrap gap-3 mb-5 pb-4 border-bottom border-light">
+
+                @if (firstChapterId.HasValue)
+                {
+                    <a href="@Url.Action("Read", "Home", new { id = firstChapterId.Value })" class="btn btn-dark rounded-pill px-5 py-3 fw-bold text-uppercase fs-6">
+                        ĐỌC CHƯƠNG 1
+                    </a>
+                }
+                else
+                {
+                    <button disabled class="btn btn-secondary rounded-pill px-5 py-3 fw-bold text-uppercase fs-6 opacity-50">
+                        ĐANG CẬP NHẬT
+                    </button>
+                }
+
+                <button id="btnBookmark" onclick="toggleBookmark(@Model.Id)" data-bookid="@Model.Id" class="btn btn-outline-dark rounded-pill px-5 py-3 fw-bold text-uppercase fs-6 nike-btn-transition">
+                    <i class="far fa-bookmark me-2" id="bookmarkIcon"></i> <span id="bookmarkText">LƯU VÀO THƯ VIỆN</span>
+                </button>
+            </div>
+
+            <div class="mb-5">
+                <h3 class="nike-font fs-4 mb-3">TÓM TẮT NỘI DUNG</h3>
+                <p class="fs-6 lh-lg text-secondary" style="max-width: 800px;">
+                    @(string.IsNullOrEmpty(Model.Description) ? "Nội dung đang được cập nhật." : Model.Description)
+                </p>
+            </div>
+
+            <div>
+                <h3 class="nike-font fs-4 mb-4 d-flex justify-content-between align-items-center">
+                    <span>DANH SÁCH CHƯƠNG</span>
+                    <span class="fs-6 text-muted fw-normal">@(Model.Chapters?.Count ?? 0) Chương</span>
+                </h3>
+
+                <div class="d-flex flex-column gap-2" style="max-width: 600px;">
+                    @if (Model.Chapters != null && Model.Chapters.Any())
+                    {
+                        foreach (var chapter in Model.Chapters.OrderByDescending(c => c.ChapterNumber))
+                        {
+                            <a href="@Url.Action("Read", "Home", new { id = chapter.Id })" class="text-decoration-none text-dark d-flex justify-content-between align-items-center p-3 bg-light hover-bg-dark transition-all">
+                                <span class="fw-bold">CHƯƠNG @chapter.ChapterNumber</span>
+                                <i class="fas fa-chevron-right small text-secondary"></i>
+                            </a>
+                        }
+                    }
+                    else
+                    {
+                        <div class="p-4 bg-light text-center fw-medium text-muted">
+                            Truyện đang trong quá trình cập nhật chương mới.
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // HÀM XỬ LÝ NÚT LƯU THƯ VIỆN BẰNG AJAX
+        function toggleBookmark(bookId) {
+            const btn = document.getElementById("btnBookmark");
+            const icon = document.getElementById("bookmarkIcon");
+            const text = document.getElementById("bookmarkText");
+
+            // Hiệu ứng Loading nho nhỏ lúc đang gọi lên Server
+            btn.classList.add("disabled");
+            icon.className = "fas fa-spinner fa-spin me-2";
+            text.innerText = "ĐANG XỬ LÝ...";
+
+            // Gọi AJAX lên Server (Nhớ sửa URL nếu Controller của ông tên khác Home)
+            $.ajax({
+                type: "POST",
+                url: "/Home/ToggleBookmark",
+                data: { bookId: bookId },
+                success: function (response) {
+                    btn.classList.remove("disabled");
+
+                    if (response.success) {
+                        if (response.isBookmarked) {
+                            // TRƯỜNG HỢP: ĐÃ LƯU
+                            // Đổi thành nút màu Đen thui, chữ Trắng
+                            btn.classList.remove("btn-outline-dark");
+                            btn.classList.add("btn-dark");
+
+                            icon.className = "fas fa-bookmark me-2 text-white";
+                            text.innerText = "ĐÃ LƯU TRONG THƯ VIỆN";
+                        } else {
+                            // TRƯỜNG HỢP: ĐÃ BỎ LƯU
+                            // Trả về nút Trắng viền Đen nguyên thủy
+                            btn.classList.remove("btn-dark");
+                            btn.classList.add("btn-outline-dark");
+
+                            icon.className = "far fa-bookmark me-2";
+                            text.innerText = "LƯU VÀO THƯ VIỆN";
+                        }
+                    } else {
+                        // Nếu chưa đăng nhập, Server trả về false
+                        alert(response.message);
+                        icon.className = "far fa-bookmark me-2";
+                        text.innerText = "LƯU VÀO THƯ VIỆN";
+                        // Có thể thêm lệnh: window.location.href = '/Account/Login'; ở đây
+                    }
+                },
+                error: function () {
+                    alert("Có lỗi xảy ra, vui lòng thử lại sau!");
+                    btn.classList.remove("disabled");
+                    icon.className = "far fa-bookmark me-2";
+                    text.innerText = "LƯU VÀO THƯ VIỆN";
+                }
+            });
+        }
+    </script>
+}
+
+<style>
+    /* Làm mượt quá trình đổi màu nút (Từ trắng sang đen) */
+    .nike-btn-transition {
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .hover-bg-dark {
+        transition: all 0.2s ease;
+        border-left: 4px solid transparent;
+    }
+
+        .hover-bg-dark:hover {
+            background-color: #111 !important;
+            color: #fff !important;
+            border-left: 4px solid #ed1d24;
+        }
+
+            .hover-bg-dark:hover .text-secondary {
+                color: #fff !important;
+            }
+
+    .fade-in-up {
+        animation: fadeInUp 0.6s ease forwards;
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    @@keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>

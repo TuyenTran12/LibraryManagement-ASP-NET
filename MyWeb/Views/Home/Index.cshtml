@@ -3,206 +3,212 @@
 @inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = Localizer["PageTitle"];
+    ViewData["Title"] = "Manga Library";
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 
     var bookSections = new[] {
         "Section_Trending",
-        "Section_Classic",
-        "Section_Love",
-        "Section_Romance",
-        "Section_Kids"
+        "Section_NewUpdated"
     };
 }
 
-<div class="p-5 mb-5 rounded-3 shadow-sm text-center" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);">
-    <div class="container-fluid py-4">
-        <h1 class="display-5 fw-bold text-white mb-3">
-            <i class="fas fa-book-open me-3 text-warning"></i>@Localizer["Hero_Title"]
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+
+<div class="position-relative mb-5 bg-dark overflow-hidden" style="height: 75vh;">
+
+    <div id="heroBookSlider" class="carousel slide carousel-fade h-100 w-100" data-bs-ride="carousel" data-bs-pause="false">
+        <div class="carousel-inner h-100">
+            @if (Model != null && Model.Any())
+            {
+                var featuredBooks = Model.Take(5).ToList();
+                for (int i = 0; i < featuredBooks.Count; i++)
+                {
+                    var book = featuredBooks[i];
+                    string coverUrl = !string.IsNullOrEmpty(book.CoverImageUrl) ? book.CoverImageUrl : "https://via.placeholder.com/1920x1080?text=Cover";
+
+                    <div class="carousel-item h-100 @(i == 0 ? "active" : "")" data-bs-interval="3000">
+                        <img src="@coverUrl" class="w-100 h-100 object-fit-cover" style="object-position: center top; filter: brightness(0.4);" alt="@book.Title">
+
+                        <div class="position-absolute bottom-0 start-50 translate-middle-x text-center w-100 px-3 pb-4 pb-md-5" style="z-index: 3; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);">
+                            <h2 class="nike-font text-white text-uppercase m-0 line-clamp-1 mx-auto" style="font-size: clamp(3rem, 7vw, 6.5rem); letter-spacing: -2px; line-height: 1; max-width: 90%;">
+                                @book.Title
+                            </h2>
+                            <p class="text-white opacity-75 mt-2 fw-medium mb-4" style="font-size: 1.1rem; letter-spacing: 1px;">
+                                @(book.Category?.Name ?? "MANGA") • @(book.Chapters?.Count ?? 0) CHƯƠNG
+                            </p>
+                            <a href="@Url.Action("Details", "Home", new { id = book.Id })" class="btn btn-light rounded-pill px-5 py-2 fw-bold text-uppercase nike-btn">
+                                @Localizer["Button_Read"]
+                            </a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+    <div class="position-absolute top-0 start-50 translate-middle-x text-center w-100 pt-4 pt-md-5 px-3" style="z-index: 10; pointer-events: none;">
+        <h1 class="nike-font text-white text-uppercase mb-3 text-glow" style="font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; letter-spacing: -1px;">
+            @Html.Raw(Localizer["Hero_Title"].Value?.Replace("\\n", "<br>")?.Replace("\n", "<br>"))
         </h1>
-        <p class="col-md-8 mx-auto fs-5 text-light opacity-75">
+        <p class="fs-6 fw-medium text-light mx-auto" style="max-width: 600px; line-height: 1.6; letter-spacing: 0.5px;">
             @Localizer["Hero_Desc"]
         </p>
     </div>
+
 </div>
 
-<div class="container pb-5">
+<div id="explore" class="container-fluid px-4 px-md-5 pb-5 mt-5">
     @foreach (var sectionKey in bookSections)
     {
-        <div class="book-section mb-5 position-relative">
+        <div class="nike-section mb-5 pb-4">
 
-            <div class="d-flex justify-content-between align-items-end mb-3 px-2">
-                <h3 class="fw-bold text-dark m-0">@Localizer[sectionKey]</h3>
+            <div class="d-flex justify-content-between align-items-end mb-4 px-md-2">
+                <h2 class="nike-font text-dark text-uppercase m-0 pb-1" style="font-size: clamp(1.4rem, 2.5vw, 2.2rem); letter-spacing: -0.5px; border-bottom: 2px solid #000;">
+                    @Localizer[sectionKey]
+                </h2>
 
-                <a href="#" class="text-primary text-decoration-none fw-bold small hover-link">
-                    @Localizer["Link_SeeAll"] <i class="fas fa-arrow-right ms-1"></i>
-                </a>
-            </div>
-
-            <div class="carousel-wrapper position-relative">
-
-                <button class="btn btn-primary rounded-circle shadow scroll-btn scroll-left" onclick="scrollCarousel(this, -1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-
-                <div class="book-carousel d-flex gap-4 pb-3 pt-2 px-2">
-                    @if (Model != null && Model.Any())
-                    {
-                        @foreach (var book in Model)
-                        {
-                            string coverUrl = !string.IsNullOrEmpty(book.CoverImageUrl)
-                            ? book.CoverImageUrl
-                            : "https://via.placeholder.com/400x550?text=No+Cover";
-
-                            <div class="book-item">
-                                <div class="card h-100 border-0 shadow-sm book-card bg-white">
-
-                                    <div class="position-relative overflow-hidden" style="height: 320px; border-radius: 12px 12px 0 0;">
-                                        <img src="@coverUrl" class="card-img-top w-100 h-100" style="object-fit: cover;" alt="@Localizer["Alt_CoverOf"] @book.Title">
-                                    </div>
-
-                                    <div class="card-body d-flex flex-column p-3">
-                                        <h5 class="card-title fw-bold text-dark mb-2 line-clamp-2" style="min-height: 48px;">
-                                            @book.Title
-                                        </h5>
-
-                                        <p class="card-text text-muted small mb-1">
-                                            <i class="fas fa-pen-nib me-2 text-primary"></i>
-                                            <strong>@Localizer["Label_Author"]</strong>
-                                            <a href="/Books/Author?name=@book.Author" class="text-decoration-none fw-bold text-secondary author-link">
-                                                @book.Author
-                                            </a>
-                                        </p>
-
-                                        <p class="card-text text-muted small mb-4">
-                                            <i class="fas fa-calendar-alt me-2 text-primary"></i>
-                                            <strong>@Localizer["Label_Published"]</strong> @book.YearPublished
-                                        </p>
-
-                                        <div class="mt-auto d-flex justify-content-between gap-2">
-                                            <a href="#" class="btn btn-outline-primary btn-sm w-50 fw-bold">
-                                                <i class="fas fa-info-circle me-1"></i>@Localizer["Button_Details"]
-                                            </a>
-                                            <a href="@Url.Action("ReadFirst", "Home", new { bookId = book.Id })" class="btn btn-primary btn-sm w-50 fw-bold shadow-sm">
-                                                <i class="fas fa-book-reader me-1"></i>@Localizer["Button_Read"]
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                    }
+                <div class="d-flex gap-2">
+                    <a href="@Url.Action("SeeAll", "Home", new { section = sectionKey })" class="text-dark fw-bold text-decoration-none me-3 align-self-center hover-underline small text-uppercase">
+                        @Localizer["Link_SeeAll"]
+                    </a>
+                    <button class="btn btn-light rounded-circle nike-scroll-btn d-none d-md-flex align-items-center justify-content-center" onclick="scrollNikeCarousel(this, -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="btn btn-light rounded-circle nike-scroll-btn d-none d-md-flex align-items-center justify-content-center" onclick="scrollNikeCarousel(this, 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
-
-                <button class="btn btn-primary rounded-circle shadow scroll-btn scroll-right" onclick="scrollCarousel(this, 1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-
             </div>
+
+            <div class="nike-carousel d-flex gap-3 gap-md-4 overflow-auto hide-scrollbar pb-3">
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var book in Model)
+                    {
+                        string coverUrl = !string.IsNullOrEmpty(book.CoverImageUrl) ? book.CoverImageUrl : "https://via.placeholder.com/400x600?text=No+Cover";
+
+                        <div class="nike-card flex-shrink-0">
+                            <a href="@Url.Action("Details", "Home", new { id = book.Id })" class="text-decoration-none d-block group">
+                                <div class="cover-wrapper position-relative overflow-hidden mb-3 shadow-sm" style="aspect-ratio: 2/3; background-color: #f5f5f5; border: 1px solid #e0e0e0;">
+                                    <img src="@coverUrl" class="w-100 h-100 object-fit-cover nike-img" alt="@book.Title">
+                                </div>
+                                <div class="nike-info">
+                                    <h3 class="fw-bold text-dark mb-1 line-clamp-1" style="font-size: 1.05rem;">@book.Title</h3>
+                                    <div class="text-secondary mb-2 line-clamp-1" style="font-size: 0.9rem;">@(book.Category?.Name ?? "Manga") • @book.Author</div>
+                                    <div class="fw-bold text-dark" style="font-size: 0.95rem;">@(book.Chapters?.Count ?? 0) Chương</div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                }
+            </div>
+
         </div>
     }
 </div>
 
 <style>
-    body.dark-theme {
-        background-color: #f4f6f9;
+    /* RESET & FONT */
+    body {
+        background-color: #ffffff !important;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
 
-    .book-carousel {
-        overflow-x: auto;
-        scroll-behavior: smooth;
-        scroll-snap-type: x mandatory;
+    .nike-font {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
+    }
+
+    /* HIỆU ỨNG HÀO QUANG CHO CHỮ TRÊN CÙNG */
+    .text-glow {
+        text-shadow: 0px 4px 15px rgba(0,0,0,0.8);
+    }
+
+    /* ẨN THANH CUỘN */
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .hide-scrollbar {
         -ms-overflow-style: none;
         scrollbar-width: none;
+        scroll-snap-type: x mandatory;
     }
 
-        .book-carousel::-webkit-scrollbar {
-            display: none;
-        }
-
-    .book-item {
-        flex: 0 0 calc(33.333% - 1rem);
+    .nike-card {
+        width: 70vw;
         scroll-snap-align: start;
     }
 
-    .book-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border-radius: 12px;
+    @@media (min-width: 768px) {
+        .nike-card {
+            width: calc(33.333% - 1rem);
+        }
     }
 
-        .book-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.12) !important;
+    @@media (min-width: 992px) {
+        .nike-card {
+            width: calc(25% - 1rem);
+        }
+    }
+
+    @@media (min-width: 1200px) {
+        .nike-card {
+            width: calc(20% - 1.2rem);
+        }
+    }
+
+    .nike-img {
+        transition: transform 0.4s ease, opacity 0.3s ease;
+    }
+
+    .group:hover .nike-img {
+        opacity: 0.85;
+    }
+
+    .nike-btn {
+        transition: all 0.2s ease;
+        pointer-events: auto;
+    }
+
+        .nike-btn:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
         }
 
-    .author-link:hover {
-        color: #0d6efd !important;
+    .nike-scroll-btn {
+        width: 44px;
+        height: 44px;
+        background-color: #f0f0f0;
+        border: none;
+        transition: background-color 0.2s;
+        color: #000;
+    }
+
+        .nike-scroll-btn:hover {
+            background-color: #e0e0e0;
+        }
+
+    .hover-underline:hover {
         text-decoration: underline !important;
     }
 
-    .line-clamp-2 {
+    /* TIỆN ÍCH */
+    .line-clamp-1 {
         display: -webkit-box;
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
         overflow: hidden;
-    }
-
-    .scroll-btn {
-        position: absolute;
-        top: 45%;
-        transform: translateY(-50%);
-        z-index: 10;
-        width: 45px;
-        height: 45px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: all 0.3s ease;
-    }
-
-    .carousel-wrapper:hover .scroll-btn {
-        opacity: 0.9;
-    }
-
-    .scroll-btn:hover {
-        opacity: 1;
-        transform: translateY(-50%) scale(1.1);
-    }
-
-    .scroll-left {
-        left: -20px;
-    }
-
-    .scroll-right {
-        right: -20px;
-    }
-
-    @@media (max-width: 992px) {
-        .book-item {
-            flex: 0 0 calc(50% - 0.75rem);
-        }
-    }
-
-    @@media (max-width: 576px) {
-        .book-item {
-            flex: 0 0 100%;
-        }
-
-        .scroll-btn {
-            display: none;
-        }
     }
 </style>
 
 <script>
-    function scrollCarousel(button, direction) {
-        const container = button.parentElement.querySelector('.book-carousel');
-        const scrollAmount = container.clientWidth;
-
-        container.scrollBy({
-            left: scrollAmount * direction,
-            behavior: 'smooth'
-        });
+    function scrollNikeCarousel(button, direction) {
+        const section = button.closest('.nike-section');
+        const container = section.querySelector('.nike-carousel');
+        const cardWidth = container.querySelector('.nike-card').clientWidth;
+        const gap = parseInt(window.getComputedStyle(container).gap) || 24;
+        const scrollAmount = cardWidth + gap;
+        container.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
     }
 </script>

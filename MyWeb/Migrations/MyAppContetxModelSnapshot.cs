@@ -173,6 +173,9 @@ namespace MyWeb.Migrations
                     b.Property<string>("CoverImageUrl")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -271,6 +274,30 @@ namespace MyWeb.Migrations
                     b.HasIndex("ChapterId");
 
                     b.ToTable("ChapterImages");
+                });
+
+            modelBuilder.Entity("MyWeb.Models.UserBookLibrary", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("BookName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserBookLibraries");
                 });
 
             modelBuilder.Entity("MyWeb.Models.Users", b =>

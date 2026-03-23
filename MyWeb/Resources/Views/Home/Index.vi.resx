@@ -124,10 +124,10 @@
     <value>Đọc Ngay</value>
   </data>
   <data name="Hero_Desc" xml:space="preserve">
-    <value>Khám phá, đọc và mở rộng kiến thức với kho truyện tranh khổng lồ của chúng tôi.</value>
+    <value>Những bộ Manga đỉnh cao nhất đã sẵn sàng. Không chần chừ, không chờ đợi. Just read it.</value>
   </data>
   <data name="Hero_Title" xml:space="preserve">
-    <value>Chào mừng đến với Thư viện Truyện Tranh</value>
+    <value>VƯỢT LÊN MỌI GIỚI HẠN</value>
   </data>
   <data name="Label_Author" xml:space="preserve">
     <value>Tác giả:</value>
@@ -141,23 +141,14 @@
   <data name="PageTitle" xml:space="preserve">
     <value>Trang chủ - Thư viện</value>
   </data>
-  <data name="Section_Classic" xml:space="preserve">
-    <value>Sách kinh điển</value>
-  </data>
-  <data name="Section_Kids" xml:space="preserve">
-    <value>Thiếu nhi</value>
-  </data>
-  <data name="Section_Love" xml:space="preserve">
-    <value>Sách được yêu thích</value>
-  </data>
-  <data name="Section_Romance" xml:space="preserve">
-    <value>Lãng mạn</value>
-  </data>
   <data name="Section_Trending" xml:space="preserve">
     <value>Sách đang hot</value>
   </data>
   <data name="Alt_CoverOf" xml:space="preserve">
     <value>Ảnh bìa của</value>
     <comment>Ảnh bìa của</comment>
+  </data>
+  <data name="Section_NewUpdated" xml:space="preserve">
+    <value>Mới Cập Nhật</value>
   </data>
 </root>
